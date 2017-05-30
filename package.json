@@ -1,0 +1,21 @@
+{
+  "name": "C3V",
+  "version": "0.0.1",
+  "license": "GPL-2.0",
+  "scripts": {
+    "test": "kalastatic build",
+    "start": "kalastatic start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soniktrooth/c3v.git"
+  },
+  "devDependencies": {
+    "kalastatic": "^3.1.0"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^2.2.4"
+  }
+}
