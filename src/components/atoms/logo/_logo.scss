@@ -1,0 +1,30 @@
+%logo {
+  margin-bottom: 15em;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+
+  svg {
+    display: block;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: $c__black;
+    font-family: $font-family-sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+
+    span {
+      display: block;
+      font-weight: normal;
+    }
+  }
+}
+
+.logo {
+  @extend %logo;
+}

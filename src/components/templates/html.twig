@@ -11,12 +11,16 @@
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.
     #}
-    <a href="#main" class="sr-only focusable skip-link">
+    <a href="#main" class="sr-only">
       {{ 'Skip to main content' }}
     </a>
 
     <main id="main">
-      <h1>C3 Church <span>Vancouver</span></h1>
+      <div class="logo">
+        {% include '@atoms/logo/logo.svg.twig' %}
+        <h1>C3 Church <span>Vancouver</span></h1>
+      </div>
+      {% include '@molecules/social-nav/social-nav.twig' with { nav: social_nav } %}
     </main>
 
     <!-- <script src="/scripts/jquery.min.js"></script>

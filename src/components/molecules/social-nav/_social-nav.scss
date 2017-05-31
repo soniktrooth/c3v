@@ -1,0 +1,37 @@
+%social-nav {
+  @extend .nav;
+  @extend .nav-justified;
+  width: 320px;
+  margin: 0 auto;
+
+  svg {
+    width: 50%;
+
+    path {
+      fill: rgba($c__white, 0.5);
+    }
+  }
+
+  li {
+    float: left;
+    width: 25%;
+
+    a {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent;
+
+        svg {
+          path {
+            fill: $c__white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.social-nav {
+  @extend %social-nav;
+}

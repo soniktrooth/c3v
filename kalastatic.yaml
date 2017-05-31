@@ -42,6 +42,9 @@ pluginOpts:
         # Introduce the "kstat" Twig namespace.
         namespaces:
           kstat: src
+          atoms: src/components/atoms
+          molecules: src/components/molecules
+          organisms: src/components/organisms
 
         # Mimic some of the Drupal 8 Twig filters.
         filters:

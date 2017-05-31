@@ -1,5 +1,8 @@
 // -- Fonts -- //
 
+@include font-face('ProximaNova', '../assets/fonts/proxima-nova-regular');
+@include font-face('ProximaNova', '../assets/fonts/proxima-nova-bold', bold);
+
 body {
   font-family: $font-family-sans-serif;
   line-height: $line-height-base;
