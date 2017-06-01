@@ -1,8 +1,8 @@
 <ul class="social-nav">
   {% for id, item in nav %}
     <li>
-      <a href="{{ item.href }}" target="_blank"><span class="sr-only">{{ item.title }}</span>
-        {% include '@molecules/social-nav/' ~ id ~ '.svg.twig' %}
+      <a href="{{ item.href }}" target="_blank"><span>{{ item.title }}</span>
+        {% include '@atoms/icons/' ~ id ~ '.svg.twig' %}
       </a>
     </li>
   {% endfor %}

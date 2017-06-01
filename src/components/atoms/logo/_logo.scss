@@ -1,14 +1,19 @@
 %logo {
-  margin-bottom: 15em;
+  margin-bottom: 4em;
   padding-left: 15px;
   padding-right: 15px;
   text-align: center;
 
   svg {
     display: block;
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto;
+
+    @media(min-width: $screen-sm) {
+      width: 250px;
+      height: 250px;
+    }
   }
 
   h1 {

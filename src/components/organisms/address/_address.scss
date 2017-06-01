@@ -1,0 +1,45 @@
+%address {
+  text-align: center;
+  color: $c__white;
+
+  .hours {
+    display: block;
+    margin-bottom: 2em;
+    font-weight: bold;
+  }
+
+  a {
+    color: $c__white;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+
+      svg {
+        opacity: 1;
+        transform: translate(-50%, -130px);
+      }
+    }
+  }
+
+  svg {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 40px;
+    transition: 0.3s ease-in-out;
+    transform: translate(-50%, -100px);
+    opacity: 0;
+
+    path {
+      fill: $c__white;
+    }
+  }
+}
+
+.address {
+  @extend %address;
+}

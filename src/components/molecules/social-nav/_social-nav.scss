@@ -1,14 +1,16 @@
 %social-nav {
   @extend .nav;
   @extend .nav-justified;
-  width: 320px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 5em;
+  padding: 0 15px;
 
   svg {
-    width: 50%;
+    width: 25%;
 
     path {
-      fill: rgba($c__white, 0.5);
+      fill: $c__white;
     }
   }
 
@@ -17,16 +19,28 @@
     width: 25%;
 
     a {
+      padding-left: 0;
+      padding-right: 0;
+      transition: .3s ease-in-out;
+
       &:hover,
       &:focus,
       &:active {
         background-color: transparent;
+        transform: scale(1.3);
 
-        svg {
-          path {
-            fill: $c__white;
-          }
+        span {
+          opacity: 1;
+          transform: translateY(-20px);
         }
+      }
+
+      span {
+        display: block;
+        color: $c__white;
+        transition: 0.3s ease-in-out;
+      	opacity: 0;
+        transform: translateY(10px);
       }
     }
   }

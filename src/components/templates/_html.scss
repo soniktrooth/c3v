@@ -1,9 +1,7 @@
 body {
   @extend %breakpoint-indicators;
-  background-image: url('/img/tree-fog.jpeg');
+  background: #0d0b18 url('/img/tree-fog.jpeg') no-repeat center center fixed;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #0d0b18;
 }
 
 main {

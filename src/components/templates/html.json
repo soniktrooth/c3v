@@ -2,19 +2,19 @@
   "social_nav": {
     "facebook": {
       "href": "https://www.facebook.com/C3Vancouver/",
-      "title": "C3 Church Vancouver on Facebook"
+      "title": "Facebook"
     },
     "twitter": {
       "href": "https://twitter.com/c3vancouver/",
-      "title": "C3 Church Vancouver on Twitter"
+      "title": "Twitter"
     },
     "instagram": {
       "href": "https://www.instagram.com/c3vancouver/",
-      "title": "C3 Church Vancouver on Instagram"
+      "title": "Instagram"
     },
     "soundcloud": {
-      "href": "https://www.soundcloud.com",
-      "title": "C3 Church Vancouver on Soundcloud"
+      "href": "https://soundcloud.com/user-305472695-70829439",
+      "title": "Podcast"
     }
   }
 }
