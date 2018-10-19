@@ -1,0 +1,17 @@
+%a--button {
+  padding: 1rem;
+  border: 1px solid $c__white;
+  border-radius: 4px;
+  color: $c__white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $c__white;
+    color: $c__black;
+  }
+}
+
+.button {
+  @extend %a--button;
+}

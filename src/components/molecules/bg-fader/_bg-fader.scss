@@ -1,0 +1,30 @@
+%bg-fader--default {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+%bg-fader {
+  @extend %bg-fader--default;
+  z-index: -1;
+
+  > div {
+    @extend %bg-fader--default;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transition: opacity 4s ease-in-out;
+    opacity: 0;
+
+    &.in {
+      opacity: 1;
+    }
+  }
+}
+
+
+.bg-fader {
+  @extend %bg-fader;
+}

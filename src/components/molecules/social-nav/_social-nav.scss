@@ -1,13 +1,15 @@
 %social-nav {
-  @extend .nav;
-  @extend .nav-justified;
+  // @extend .nav;
+  // @extend .nav-justified;
+  display: flex;
   width: 100%;
   max-width: 520px;
   margin: 0 auto 5em;
   padding: 0 15px;
 
   svg {
-    width: 25%;
+    width: 33%;
+    height: auto;
 
     path {
       fill: $c__white;
@@ -15,8 +17,8 @@
   }
 
   li {
-    float: left;
     width: 25%;
+    list-style: none;
 
     a {
       padding-left: 0;

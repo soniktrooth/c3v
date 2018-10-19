@@ -12,9 +12,13 @@
       "href": "https://www.instagram.com/c3vancouver/",
       "title": "Instagram"
     },
-    "soundcloud": {
-      "href": "https://soundcloud.com/user-305472695-70829439",
+    "podcast": {
+      "href": "https://anchor.fm/c3vancouver",
       "title": "Podcast"
+    },
+    "giving": {
+      "href": "https://tithe.ly/give?c=234700",
+      "title": "Giving"
     }
   }
 }

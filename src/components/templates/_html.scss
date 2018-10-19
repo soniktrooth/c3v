@@ -1,10 +1,23 @@
+html {
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  @extend %breakpoint-indicators;
-  background: #0d0b18 url('/img/tree-fog.jpeg') no-repeat center center fixed;
+  // @extend %breakpoint-indicators;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: #0d0b18 url('/img/bg-1.jpg') no-repeat center center fixed;
   background-size: cover;
+  font-size: 1rem;
 }
 
 main {
-  padding-top: 1em;
+  min-height: 100%;
+  position: relative;
   padding-bottom: 2.7em;
+  text-align: center;
+  z-index: 1;
 }

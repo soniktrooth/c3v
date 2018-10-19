@@ -4,15 +4,47 @@
   padding-right: 15px;
   text-align: center;
 
+  &.logo-color--0 {
+    svg {
+      path {
+        fill: $c__black;
+      }
+    }
+
+    h1 {
+      color: $c__black
+    }
+  }
+
+  &.logo-color--1 {
+    svg {
+      path {
+        fill: $c__white;
+      }
+    }
+    h1 {
+      color: $c__white
+    }
+  }
+
   svg {
     display: block;
     width: 150px;
     height: 150px;
     margin: 0 auto;
-
+    
     @media(min-width: $screen-sm) {
       width: 250px;
       height: 250px;
+    }
+
+    @media(max-height: 600px) {
+      width: 150px;
+      height: 150px;
+    }
+
+    path {
+      transition: fill 2s ease-in-out;
     }
   }
 
@@ -22,6 +54,7 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 10px;
+    transition: color 2s ease-in-out;
 
     span {
       display: block;

@@ -14,7 +14,6 @@
     <a href="#main" class="sr-only">
       {{ 'Skip to main content' }}
     </a>
-
     <main id="main">
       <div class="logo">
         {% include '@atoms/logo/logo.svg.twig' %}
@@ -22,6 +21,14 @@
       </div>
       {% include '@molecules/social-nav/social-nav.twig' with { nav: social_nav } %}
       {% include '@organisms/address/address.twig' with { nav: social_nav } %}
+
+      <div class="bg-fader">
+        <div class="in"></div>
+        <div class="out"></div>
+      </div>
     </main>
+
+    <script src="/vendors/jquery/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
