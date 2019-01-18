@@ -1,13 +1,38 @@
 {
   "name": "c3v",
-  "version": "2.0",
+  "version": "1.0.0",
   "description": "Website for C3 Vancouver",
-  "main": "index.js",
-  "repository": "git@github.com:soniktrooth/c3v.git",
-  "author": "Josh <soniktrooth@gmail.com>",
-  "license": "MIT",
-  "private": false,
+  "author": "Josh",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
   "dependencies": {
-    "nuxt": "^2.3.4"
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.3.4",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "bootstrap": "^4.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-config-standard": ">=12.0.0",
+    "eslint-plugin-import": ">=2.14.0",
+    "eslint-plugin-jest": ">=21.24.1",
+    "eslint-plugin-node": ">=7.0.1",
+    "eslint-plugin-promise": ">=4.0.1",
+    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "prettier": "1.14.3"
   }
 }
