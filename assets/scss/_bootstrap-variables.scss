@@ -1,0 +1,21 @@
+// // Brand color palette;
+$green: #A6AF34;
+$green-dark: #7E842A;
+$orange: #D49136;
+$black: #272719;
+
+$primary: $green;
+
+//$body-color: $white;
+
+// Setup theme colors.
+$theme-colors: ("primary": $green,
+"primary-dark": $green-dark,
+"secondary": $orange,
+"secondary-dark": $green-dark,
+"success": $green,
+"warning": $orange,
+"black": $black,
+);
+
+$link-color: $orange;
