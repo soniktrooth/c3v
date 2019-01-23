@@ -1,4 +1,3 @@
-const path = require('path')
 const pkg = require('./package')
 
 module.exports = {
@@ -9,7 +8,8 @@ module.exports = {
    */
   head: {
     title: pkg.name,
-    meta: [{
+    meta: [
+      {
         charset: 'utf-8'
       },
       {
@@ -22,19 +22,19 @@ module.exports = {
         content: pkg.description
       }
     ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    }],
-    script: [{
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
+    ],
+    script: [
+      {
         src: '/js/jquery.min.js'
       },
       {
         src: '/js/bootstrap/util.js'
-      },
-      {
-        src: '/js/bootstrap/scrollspy.js'
       },
       {
         src: '/js/bootstrap/collapse.js'
@@ -60,7 +60,12 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  // plugins: ['~/plugins/vue2-filters'],
+  plugins: [
+    {
+      src: '~/plugins/vue2-scrollspy',
+      ssr: false
+    }
+  ],
 
   /*
    ** Nuxt.js modules

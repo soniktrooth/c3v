@@ -18,20 +18,26 @@
       id="main-menu"
       class="collapse navbar-collapse"
     >
-      <ul class="navbar-nav">
-        <li
-          v-for="item in menu"
-          :key="item.id"
-          class="nav-item"
+      <div class="navbar-nav">
+        <ul
+          v-scroll-spy-active
+          v-scroll-spy-link
+          class="nav"
         >
-          <a
-            href="item.url"
-            class="nav-link"
+          <li
+            v-for="item in menu"
+            :key="item.id"
+            class="nav-item"
           >
-            {{ item.title }}
-          </a>
-        </li>
-      </ul>
+            <a
+              :href="item.url"
+              class="nav-link"
+            >
+              {{ item.title }}
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
@@ -81,11 +87,13 @@ export default {
 </script>
 
 <style lang="scss">
-.navbar {
+#navbar {
   width: 100%;
+  padding: 0;
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-100%);
   transition: background-color 0.25s ease-in-out;
+  z-index: 2;
 
   &.affix {
     position: fixed;
@@ -94,11 +102,22 @@ export default {
     background-color: rgba(0, 0, 0, 0.2);
   }
 
+  .navbar-nav {
+    width: 100%;
+  }
+
   ul {
     @extend .nav-fill;
     width: 100%;
 
     li {
+      &.active {
+        a {
+          background-color: $white;
+          color: $black;
+        }
+      }
+
       a {
         text-transform: uppercase;
         color: $white;

@@ -43,7 +43,7 @@ header {
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  min-height: 500px;
+  min-height: 700px;
   background-color: var(--primary);
   background-image: url('~assets/img/forest.jpg');
   background-size: cover;
