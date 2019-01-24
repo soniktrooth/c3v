@@ -29,15 +29,15 @@ export const state = () => ({
   ],
   socialMenu: {
     instagram: {
-      url: '#',
+      url: 'https://www.instagram.com/c3vancouver/',
       icon: 'IconInstagram'
     },
     Twitter: {
-      url: '#',
+      url: 'https://twitter.com/c3vancouver/',
       icon: 'IconTwitter'
     },
     facebook: {
-      url: '#',
+      url: 'https://www.facebook.com/C3Vancouver/',
       icon: 'IconFacebook'
     }
   }

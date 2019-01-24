@@ -1,7 +1,6 @@
 <template>
   <div class="page page--index">
     <c3-header />
-    <c3-navbar />
     <div
       id="sections"
       v-scroll-spy="{allowNoActive: true}"
@@ -17,7 +16,6 @@
 
 <script>
 import C3Header from '@/components/C3Header.vue'
-import C3Navbar from '@/components/C3Navbar.vue'
 import C3FindUs from '@/components/C3FindUs.vue'
 import C3Events from '@/components/C3Events.vue'
 import C3AboutUs from '@/components/C3AboutUs.vue'
@@ -28,7 +26,6 @@ export default {
   components: {
     C3Header,
     C3FindUs,
-    C3Navbar,
     C3Events,
     C3AboutUs,
     C3Podcast,

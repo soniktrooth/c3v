@@ -1,7 +1,7 @@
 <template>
   <nav
     id="navbar"
-    :class="['navbar', 'navbar-expand-md', {'affix': sticky}]"
+    :class="['navbar', 'navbar-expand-md', {'affix': sticky}, {'menu-open': menuOpen}]"
   >
     <button
       class="navbar-toggler"
@@ -11,8 +11,10 @@
       aria-controls="main-menu"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      @click="menuToggle()"
     >
-      <IconHamburger class="navbar-toggler-icon" />
+      <icon-hamburger :class="['navbar-toggler-icon', {'show': !menuOpen}]" />
+      <icon-close :class="['navbar-toggler-icon', {'show': menuOpen}]" />
     </button>
     <div
       id="main-menu"
@@ -44,22 +46,25 @@
 
 <script>
 import IconHamburger from '@/assets/svg/icon--hamburger.svg'
+import IconClose from '@/assets/svg/icon--close.svg'
 
 export default {
   components: {
-    IconHamburger
+    IconHamburger,
+    IconClose
   },
   data() {
     return {
       menu: this.$store.state.mainMenu,
       scrollY: 0,
       headerHeight: 0,
-      navHeight: 0
+      navHeight: 0,
+      menuOpen: 0
     }
   },
   computed: {
     sticky() {
-      return this.scrollY > this.headerHeight - this.navHeight
+      return this.menuOpen || this.scrollY > this.headerHeight - this.navHeight
     }
   },
   mounted() {
@@ -81,6 +86,9 @@ export default {
     },
     getNavHeight() {
       this.navHeight = document.getElementById('navbar').clientHeight
+    },
+    menuToggle() {
+      this.menuOpen = !this.menuOpen
     }
   }
 }
@@ -90,27 +98,71 @@ export default {
 #navbar {
   width: 100%;
   padding: 0;
+  align-content: flex-start;
+  position: absolute;
+  bottom: 0;
   background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-100%);
-  transition: background-color 0.25s ease-in-out;
+  transition: all 0.35s ease-in-out;
   z-index: 2;
 
   &.affix {
     position: fixed;
     top: 0;
-    transform: translateY(0);
+    bottom: auto;
     background-color: rgba(0, 0, 0, 0.2);
+
+    .navbar-toggler {
+      height: 3rem;
+    }
+  }
+
+  &.menu-open {
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    .navbar-toggler {
+      height: 5rem;
+    }
   }
 
   .navbar-nav {
     width: 100%;
   }
 
+  .navbar-toggler {
+    height: 5rem;
+    width: 5rem;
+    padding: 0;
+    position: relative;
+    transition: all 0.35s ease-out;
+
+    .navbar-toggler-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.35s ease-out;
+
+      &.show {
+        opacity: 1;
+      }
+    }
+  }
+
   ul {
     @extend .nav-fill;
     width: 100%;
+    max-width: map-get($grid-breakpoints, 'xl');
+    margin: 0 auto;
 
     li {
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+        width: auto;
+      }
+
       &.active {
         a {
           background-color: $white;
@@ -119,8 +171,15 @@ export default {
       }
 
       a {
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-transform: uppercase;
+        font-size: 1.25rem;
+        letter-spacing: 2px;
         color: $white;
+        font-weight: 800;
       }
     }
   }
