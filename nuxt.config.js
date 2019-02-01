@@ -109,7 +109,7 @@ module.exports = {
           {
             test: /\.md$/,
             loader: 'frontmatter-markdown-loader',
-            include: path.resolve(__dirname, 'contents')
+            include: path.resolve(__dirname, 'content')
           }
         )
       }

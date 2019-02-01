@@ -25,7 +25,6 @@ import C3Giving from '@/components/C3Giving.vue'
 import wn from '~/content/events/worship-night.md'
 // const fm = require('front-matter')
 // const fileContent = import('@/content/events/worship-night.md')
-const frontmatter = require('front-matter')
 
 export default {
   components: {
@@ -39,13 +38,11 @@ export default {
   fetch({ store, params }) {
     // const md = require.context('~/content/events', true, /\.md$/)
     const md = require('~/content/events/christmas-village.md')
-    const fm = frontmatter(md)
-
     // eslint-disable-next-line
     console.log(wn)
 
     // eslint-disable-next-line
-    console.log(fm)
+    console.log(md)
     // eslint-disable-next-line
     console.log(wn.attributes)
     // eslint-disable-next-line
