@@ -22,7 +22,7 @@ import C3AboutUs from '@/components/C3AboutUs.vue'
 import C3Podcast from '@/components/C3Podcast.vue'
 import C3Giving from '@/components/C3Giving.vue'
 
-import wn from '~/content/events/worship-night.md'
+// import wn from '~/content/events/worship-night.md'
 // const fm = require('front-matter')
 // const fileContent = import('@/content/events/worship-night.md')
 
@@ -39,16 +39,16 @@ export default {
     // const md = require.context('~/content/events', true, /\.md$/)
     const md = require('~/content/events/christmas-village.md')
     // eslint-disable-next-line
-    console.log(wn)
+    //console.log(wn)
 
     // eslint-disable-next-line
     console.log(md)
     // eslint-disable-next-line
-    console.log(wn.attributes)
+    //console.log(wn.attributes)
     // eslint-disable-next-line
-    console.log(wn.body)
+    //console.log(wn.body)
     // eslint-disable-next-line
-    console.log(wn.html)
+    //console.log(wn.html)
     // const mdContent = []
     // // const res = fm(fileContent.default)
 

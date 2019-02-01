@@ -74,7 +74,7 @@ module.exports = {
    */
   modules: [
     // '@nuxtjs/markdownit',
-    'frontmatter-markdown-loader',
+    // 'frontmatter-markdown-loader',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
     // Doc: https://bootstrap-vue.js.org/docs/
