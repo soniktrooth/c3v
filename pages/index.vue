@@ -22,6 +22,11 @@ import C3AboutUs from '@/components/C3AboutUs.vue'
 import C3Podcast from '@/components/C3Podcast.vue'
 import C3Giving from '@/components/C3Giving.vue'
 
+import wn from '~/content/events/worship-night.md'
+// const fm = require('front-matter')
+// const fileContent = import('@/content/events/worship-night.md')
+const frontmatter = require('front-matter')
+
 export default {
   components: {
     C3Header,
@@ -30,9 +35,36 @@ export default {
     C3AboutUs,
     C3Podcast,
     C3Giving
+  },
+  fetch({ store, params }) {
+    // const md = require.context('~/content/events', true, /\.md$/)
+    const md = require('~/content/events/christmas-village.md')
+    const fm = frontmatter(md)
+
+    // eslint-disable-next-line
+    console.log(wn)
+
+    // eslint-disable-next-line
+    console.log(fm)
+    // eslint-disable-next-line
+    console.log(wn.attributes)
+    // eslint-disable-next-line
+    console.log(wn.body)
+    // eslint-disable-next-line
+    console.log(wn.html)
+    // const mdContent = []
+    // // const res = fm(fileContent.default)
+
+    // md.keys().forEach(function(key) {
+    //   // const res = fm(fileContent.default)
+    //   debugger
+    //   mdContent.push(key)
+    // })
+
+    // store.commit('events/add', mdContent)
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 </style>

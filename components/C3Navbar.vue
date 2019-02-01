@@ -101,9 +101,10 @@ export default {
   align-content: flex-start;
   position: absolute;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.2);
   transition: all 0.35s ease-in-out;
   z-index: 2;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
 
   &.affix {
     position: fixed;
@@ -118,7 +119,9 @@ export default {
 
   &.menu-open {
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 
     .navbar-toggler {
       height: 5rem;
@@ -152,9 +155,8 @@ export default {
 
   ul {
     @extend .nav-fill;
+    @extend %container;
     width: 100%;
-    max-width: map-get($grid-breakpoints, 'xl');
-    margin: 0 auto;
 
     li {
       width: 100%;
@@ -177,7 +179,7 @@ export default {
         align-items: center;
         text-transform: uppercase;
         font-size: 1.25rem;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         color: $white;
         font-weight: 800;
       }

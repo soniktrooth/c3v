@@ -55,7 +55,6 @@ header {
   background-image: url('~assets/img/forest.jpg');
   background-size: cover;
   background-position: center;
-  //background-attachment: fixed;
   color: $white;
 
   .header__logo-social {
@@ -106,14 +105,14 @@ header {
 
   .header__down-link {
     display: block;
-    padding-bottom: 25%;
+    padding-bottom: calc(5rem + 25%);
 
     @include media-breakpoint-up(sm) {
-      padding-bottom: 20%;
+      padding-bottom: calc(5rem + 20%);
     }
 
     @include media-breakpoint-up(md) {
-      padding-bottom: 10%;
+      padding-bottom: calc(5rem + 10%);
     }
   }
 }
