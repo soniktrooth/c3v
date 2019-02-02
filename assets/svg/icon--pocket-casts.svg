@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="98px"
+   height="98px"
+   viewBox="0 0 98 98"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="pclogo.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="2.4081633"
+     inkscape:cx="49"
+     inkscape:cy="49"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg14" />
+  <!-- Generator: Sketch Beta 3.1 (8603) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">pclogo</title>
+  <desc
+     id="desc4">Created with Sketch Beta.</desc>
+  <defs
+     id="defs6" />
+  <g
+     id="Add-Podcast"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     sketch:type="MSPage"
+     style="fill:#000000">
+    <g
+       id="4"
+       sketch:type="MSArtboardGroup"
+       transform="translate(-671.000000, -80.000000)"
+       fill="#F1544B"
+       style="fill:#000000">
+      <g
+         id="Add-your-Podcast-to--+-pclogo_white-2"
+         sketch:type="MSLayerGroup"
+         transform="translate(349.000000, 80.000000)"
+         style="fill:#000000">
+        <g
+           id="pclogo"
+           transform="translate(322.000000, 0.000000)"
+           sketch:type="MSShapeGroup"
+           style="fill:#000000">
+          <path
+             d="M13.36,49 C13.36,29.316 29.316,13.36 49,13.36 C68.684,13.36 84.64,29.316 84.64,49 L97.918,49 C97.918,21.983 76.017,0.082 49,0.082 C21.983,0.082 0.082,21.983 0.082,49 C0.082,76.017 21.983,97.918 49,97.918 L49,84.64 C29.316,84.64 13.36,68.684 13.36,49"
+             id="Fill-1"
+             style="fill:#000000" />
+          <path
+             d="M29.922,49 C29.922,38.463 38.463,29.922 49,29.922 C59.536,29.922 68.078,38.463 68.078,49 L78.229,49 C78.229,32.857 65.143,19.771 49,19.771 C32.857,19.771 19.771,32.857 19.771,49 C19.771,65.143 32.857,78.229 49,78.229 L49,68.078 C38.463,68.078 29.922,59.536 29.922,49"
+             id="Fill-2"
+             style="fill:#000000" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

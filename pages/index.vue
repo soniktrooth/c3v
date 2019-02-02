@@ -37,12 +37,11 @@ export default {
   },
   fetch({ store, params }) {
     // const md = require.context('~/content/events', true, /\.md$/)
-    const md = require('~/content/events/christmas-village.md')
+    // const md = require('~/content/events/christmas-village.md')
     // eslint-disable-next-line
     //console.log(wn)
-
     // eslint-disable-next-line
-    console.log(md)
+    //console.log(md)
     // eslint-disable-next-line
     //console.log(wn.attributes)
     // eslint-disable-next-line
@@ -51,13 +50,11 @@ export default {
     //console.log(wn.html)
     // const mdContent = []
     // // const res = fm(fileContent.default)
-
     // md.keys().forEach(function(key) {
     //   // const res = fm(fileContent.default)
     //   debugger
     //   mdContent.push(key)
     // })
-
     // store.commit('events/add', mdContent)
   }
 }

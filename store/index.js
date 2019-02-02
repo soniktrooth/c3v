@@ -40,5 +40,10 @@ export const state = () => ({
       url: 'https://www.facebook.com/C3Vancouver/',
       icon: 'IconFacebook'
     }
-  }
+  },
+  podcastEpisodes: [
+    'https://anchor.fm/c3vancouver/embed/episodes/Faith-Beyond-Belief---Ps--Graham-Fletcher---14th-October-2018-e2dbk2/a-a5rnkp',
+    'https://anchor.fm/c3vancouver/embed/episodes/Faith-Cheque---Ps--Graham-Fletcher---7th-October-2018-e2c38p/a-a5o4qj',
+    'https://anchor.fm/c3vancouver/embed/episodes/Ps--Graham-Nelson---September-2018-e2b5m6/a-a5l2k5'
+  ]
 })
