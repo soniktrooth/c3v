@@ -3,58 +3,56 @@
     <h2 class="sr-only">
       Events
     </h2>
-
     <ul class="events__list">
       <li
         v-for="(event, i) in events"
         :key="i"
       >
-        <div v-html="event" />
+        <c3-event :event="event" />
       </li>
     </ul>
     <div class="events__featured">
-      <!-- <img :src="featured[0]"> -->
-      {{ featured }}
+      <div
+        v-for="event in featured"
+        :key="event.id"
+        class="events__featured-event"
+      >
+        <div class="events__details sr-only">
+          <c3-event :event="event" />
+        </div>
+        <img :src="'/events-images/' + event.attributes.image">
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-// const fm = require('front-matter')
-// const md = require('markdown-it')
+import C3Event from '@/components/C3Event.vue'
 
 export default {
+  components: {
+    C3Event
+  },
   data() {
-    return {
-      // events: [],
-      featured: ['blah']
-    }
+    return {}
   },
   computed: {
     events() {
-      return this.$store.state.events
-    }
-  },
-  mounted() {
-    // const mds = require.context('~/static/events', true, /\.md$/)
-    // this.importMarkdown(mds, this.events)
-    // const img = require.context('~/static/events/featured', true)
-    // this.importAll(img, this.featured)
-  },
-  methods: {
-    importAll(items, dataItem) {
-      items.keys().forEach(key => dataItem.push(items(key)))
+      return this.$store.state.events.list
     },
-    importMarkdown(items, events) {
-      // items.keys().forEach(function(key) {
-      //   debugger
-      //   const fileContent = import(key)
-      //   const res = fm(fileContent.default)
-      //   events.push(res)
-      //   debugger
-      // })
+    featured() {
+      return this.$store.state.events.featured
+    },
+    featuredImages() {
+      const imgs = []
+      this.featured.forEach(item => {
+        const src = '/events-images/' + item.attributes.image
+        imgs.push(src)
+      })
+      return imgs
     }
-  }
+  },
+  methods: {}
 }
 </script>
 
@@ -85,16 +83,16 @@ export default {
         padding-left: 3rem;
       }
 
-      section {
-        margin-bottom: 5rem;
+      h2 {
+        margin-bottom: 1.25rem;
+        font-size: 2.25rem;
+        min-height: 5.5rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
 
-        h2 {
-          margin-bottom: 1.25rem;
-          font-size: 2.25rem;
-          min-height: 5.5rem;
-          font-weight: 800;
-          text-transform: uppercase;
-        }
+      div {
+        margin-bottom: 5rem;
 
         p {
           font-size: 1.5rem;

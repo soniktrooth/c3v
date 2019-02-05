@@ -1,5 +1,5 @@
 import path from 'path'
-// const md = require('markdown-it')
+const webpack = require('webpack')
 const pkg = require('./package')
 
 module.exports = {
@@ -51,7 +51,7 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: '#A6AF34'
   },
 
   /*
@@ -73,8 +73,6 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    // '@nuxtjs/markdownit',
-    // 'frontmatter-markdown-loader',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
     // Doc: https://bootstrap-vue.js.org/docs/
@@ -93,26 +91,33 @@ module.exports = {
     styleResources: {
       scss: require('./assets/scss/imports.js')
     },
+    /**
+     * add external plugins
+     */
+    vendor: ['jquery', 'bootstrap'],
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery'
+      })
+    ],
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push(
-          {
-            enforce: 'pre',
-            test: /\.(js|vue)$/,
-            loader: 'eslint-loader',
-            exclude: /(node_modules)/
-          },
-          {
-            test: /\.md$/,
-            loader: 'frontmatter-markdown-loader',
-            include: path.resolve(__dirname, 'content')
-          }
-        )
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
       }
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        include: path.resolve(__dirname, 'content')
+      })
     }
   }
 }

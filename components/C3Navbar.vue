@@ -13,8 +13,9 @@
       aria-label="Toggle navigation"
       @click="menuToggle()"
     >
-      <icon-hamburger :class="['navbar-toggler-icon', {'show': !menuOpen}]" />
-      <icon-close :class="['navbar-toggler-icon', {'show': menuOpen}]" />
+      <div :class="['burger', 'burger-slip', {'open': menuOpen}]">
+        <div class="burger-lines" />
+      </div>
     </button>
     <div
       id="main-menu"
@@ -34,6 +35,7 @@
             <a
               :href="item.url"
               class="nav-link"
+              @click="closeMenu()"
             >
               {{ item.title }}
             </a>
@@ -45,14 +47,7 @@
 </template>
 
 <script>
-import IconHamburger from '@/assets/svg/icon--hamburger.svg'
-import IconClose from '@/assets/svg/icon--close.svg'
-
 export default {
-  components: {
-    IconHamburger,
-    IconClose
-  },
   data() {
     return {
       menu: this.$store.state.mainMenu,
@@ -89,6 +84,14 @@ export default {
     },
     menuToggle() {
       this.menuOpen = !this.menuOpen
+    },
+    closeMenu() {
+      // Only on mobile.
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        // Lint diabled needed because jQuery.
+        // eslint-disable-next-line
+        $('.navbar-toggler').trigger('click')
+      }
     }
   }
 }
@@ -102,7 +105,7 @@ export default {
   position: absolute;
   bottom: 0;
   transition: all 0.35s ease-in-out;
-  z-index: 2;
+  z-index: 10;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
 
@@ -139,16 +142,11 @@ export default {
     position: relative;
     transition: all 0.35s ease-out;
 
-    .navbar-toggler-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: all 0.35s ease-out;
+    .burger {
+      margin-left: 2rem;
 
-      &.show {
-        opacity: 1;
+      &.open {
+        margin-left: 1rem;
       }
     }
   }

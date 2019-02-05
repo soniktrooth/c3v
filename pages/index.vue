@@ -3,14 +3,16 @@
     <c3-header />
     <div
       id="sections"
-      v-scroll-spy="{allowNoActive: true}"
+      v-scroll-spy="{allowNoActive: true, offset: scrollSpyOffset()}"
     >
       <c3-find-us />
       <c3-events />
       <c3-about-us />
       <c3-podcast />
       <c3-giving />
+      <c3-attribution />
     </div>
+    <c3-footer />
   </div>
 </template>
 
@@ -21,6 +23,8 @@ import C3Events from '@/components/C3Events.vue'
 import C3AboutUs from '@/components/C3AboutUs.vue'
 import C3Podcast from '@/components/C3Podcast.vue'
 import C3Giving from '@/components/C3Giving.vue'
+import C3Attribution from '@/components/C3Attribution.vue'
+import C3Footer from '@/components/C3Footer.vue'
 
 // import wn from '~/content/events/worship-night.md'
 // const fm = require('front-matter')
@@ -33,29 +37,24 @@ export default {
     C3Events,
     C3AboutUs,
     C3Podcast,
-    C3Giving
+    C3Giving,
+    C3Attribution,
+    C3Footer
   },
   fetch({ store, params }) {
-    // const md = require.context('~/content/events', true, /\.md$/)
-    // const md = require('~/content/events/christmas-village.md')
-    // eslint-disable-next-line
-    //console.log(wn)
-    // eslint-disable-next-line
-    //console.log(md)
-    // eslint-disable-next-line
-    //console.log(wn.attributes)
-    // eslint-disable-next-line
-    //console.log(wn.body)
-    // eslint-disable-next-line
-    //console.log(wn.html)
-    // const mdContent = []
-    // // const res = fm(fileContent.default)
-    // md.keys().forEach(function(key) {
-    //   // const res = fm(fileContent.default)
-    //   debugger
-    //   mdContent.push(key)
-    // })
-    // store.commit('events/add', mdContent)
+    const md = require.context('~/content/events', true, /\.md$/)
+    const mdContent = []
+    md.keys().forEach(function(key) {
+      mdContent.push(md(key))
+    })
+    store.commit('events/add', mdContent)
+  },
+  methods: {
+    scrollSpyOffset() {
+      if (process.client) {
+        return window.matchMedia('(min-width: 768px)').matches ? 80 : 48
+      }
+    }
   }
 }
 </script>

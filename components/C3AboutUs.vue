@@ -9,7 +9,7 @@
           Kat Walker, <br>Fletch & Patti
         </h3>
         <p>
-          Katherine is a very important person and should be treated as such.
+          Katherine is wonderful person that needs to be talked about in this section in some detail etc.
         </p>
         <p>
           Graham & Patricia Fletcher established C3 Church Vancouver in 2001. They have been in full time ministry since 1971 as pastors and church planters in Australia and Canada.
@@ -87,7 +87,7 @@ export default {
     height: 40rem;
     position: relative;
     background-color: $yellow;
-    //shape-outside: polygon(0 0, 0 80%, 50% 100%, 80% 100%, 100% 0);
+    // shape-outside: polygon(0 0, 0 80%, 50% 100%, 80% 100%, 100% 0);
     clip-path: polygon(0 0, 0 80%, 50% 100%, 100% 80%, 100% 0);
 
     @include media-breakpoint-up(lg) {

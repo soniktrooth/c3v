@@ -2,6 +2,25 @@
 # yarn lockfile v1
 
 
+"@animated-burgers/burger-slide@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@animated-burgers/burger-slide/-/burger-slide-1.1.1.tgz#54f58d9c491463d20cc13cc19c712ec6044593cf"
+  integrity sha512-AqN45zjoRx4kGiLT7YaVlMv7L4t/zH/YVpGMjotLGsJ6RzAzl7ppYWK3Q/nmEcBM2qZp+7Cmgg0vK2J08JwHVw==
+  dependencies:
+    "@animated-burgers/burger" "^1.1.0"
+
+"@animated-burgers/burger-slip@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@animated-burgers/burger-slip/-/burger-slip-1.1.1.tgz#5b505069fd1d5eb2fdd016aac787dcd6a90e10ba"
+  integrity sha512-vQJnj0/obuRIuddKYcGq+TBS1gQp5VcsMphNS1GI8AWgfl8qscDZ0APIqHHsmc2o10gq2iw4I6GOMq1SdMqd+w==
+  dependencies:
+    "@animated-burgers/burger" "^1.1.0"
+
+"@animated-burgers/burger@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@animated-burgers/burger/-/burger-1.1.0.tgz#56f2648d019f4ccb7d702e4e43c73851dc1948ff"
+  integrity sha512-Udm2Owo1WgIwQuUlgmeInu8vdZEOoDGNg2lUHX1NZGPTnTIrbUCjkxAdMZBZGYMfOyliVHUcpkbNBw0pl6nSqg==
+
 "@babel/code-frame@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.44.tgz#2a02643368de80916162be70865c97774f3adbd9"
@@ -2096,6 +2115,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-css@4.2.x:
   version "4.2.1"

@@ -1,18 +1,11 @@
 <template>
   <header id="header">
     <div class="header__logo-social">
-      <C3logo />
+      <c3-logo />
       <h1>C3 Church Vancouver</h1>
-      <ul class="header__social">
-        <li
-          v-for="social in socialMenu"
-          :key="social.id"
-        >
-          <a :href="social.url">
-            <C3Icon :icon-name="social.icon" />
-          </a>
-        </li>
-      </ul>
+      <div class="header__social">
+        <c3-social />
+      </div>
       <a
         href="#find-us"
         class="header__down-link"
@@ -25,15 +18,17 @@
 </template>
 
 <script>
-import C3logo from '@/assets/svg/C3logo.svg'
+import C3Logo from '@/assets/svg/C3Logo.svg'
 import C3Icon from '@/components/C3Icon.vue'
 import C3Navbar from '@/components/C3Navbar.vue'
+import C3Social from '@/components/C3SocialLinks.vue'
 
 export default {
   components: {
-    C3logo,
+    C3Logo,
     C3Icon,
-    C3Navbar
+    C3Navbar,
+    C3Social
   },
 
   data() {
@@ -82,25 +77,9 @@ header {
     }
   }
 
-  .header__social {
-    @extend .nav;
-    flex-wrap: nowrap;
+  .social-links {
     max-width: 200px;
     margin: 0 auto 3rem;
-
-    li {
-      @extend .nav-item;
-
-      a {
-        @extend .nav-link;
-      }
-    }
-  }
-
-  .header__social {
-    li {
-      flex-grow: 1;
-    }
   }
 
   .header__down-link {
