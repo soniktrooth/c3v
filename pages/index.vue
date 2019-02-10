@@ -26,10 +26,6 @@ import C3Giving from '@/components/C3Giving.vue'
 import C3Attribution from '@/components/C3Attribution.vue'
 import C3Footer from '@/components/C3Footer.vue'
 
-// import wn from '~/content/events/worship-night.md'
-// const fm = require('front-matter')
-// const fileContent = import('@/content/events/worship-night.md')
-
 export default {
   components: {
     C3Header,
@@ -42,6 +38,7 @@ export default {
     C3Footer
   },
   fetch({ store, params }) {
+    // Grab all the event markdown files and add them to the store.
     const md = require.context('~/content/events', true, /\.md$/)
     const mdContent = []
     md.keys().forEach(function(key) {

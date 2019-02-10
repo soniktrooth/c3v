@@ -28,11 +28,23 @@
       <div class="giving--or">
         or
       </div>
-      <div class="giving--give-now">
-        <button>
+      <div
+        class="giving--give-now"
+        @click="toggleGiveOverlay"
+      >
+        <button @click="toggleGiveOverlay">
           <icon-lock /><span>Give Now</span>
           <icon-chevron-right />
         </button>
+        <div :class="['giving--tithely-iframe', {'show': frameShow}]">
+          <div class="giving--iframe-wrap">
+            <icon-close @click="toggleGiveOverlay" />
+            <iframe
+              :src="frameSrc"
+              frameborder="0"
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div class="tithely-circle">
@@ -47,6 +59,7 @@ import AppStoreLogo from '@/assets/svg/logo--app-store.svg'
 import GooglePlayLogo from '@/assets/svg/logo--google-play.svg'
 import IconLock from '@/assets/svg/icon--lock.svg'
 import IconChevronRight from '@/assets/svg/icon--chevron-right.svg'
+import IconClose from '@/assets/svg/icon--close.svg'
 
 export default {
   components: {
@@ -54,10 +67,31 @@ export default {
     AppStoreLogo,
     GooglePlayLogo,
     IconLock,
-    IconChevronRight
+    IconChevronRight,
+    IconClose
   },
   data() {
-    return {}
+    return {
+      frameShow: false,
+      frameSrc: ''
+    }
+  },
+  methods: {
+    toggleGiveOverlay: function(event) {
+      // Prevent a bubble up because we're also calling this from the button's
+      // parent element for closing when the iframe is showing.
+      event.stopPropagation()
+
+      // Toggle class on frame.
+      this.frameShow = !this.frameShow
+
+      // Prevent the body from scrolling when the overlay is showing.
+      document.getElementsByTagName('BODY')[0].classList.toggle('no-scroll')
+
+      this.frameSrc = this.frameSrc
+        ? ''
+        : 'https://tithe.ly/give?c=234700?widget=1'
+    }
   }
 }
 </script>
@@ -78,9 +112,9 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     height: 415px;
-    clip-path: polygon(0 0, 0 150px, 50% 100%, 100% 150px, 100% 0);
+    clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
     transform: translateY(-495px);
     background-color: #addbcb;
     z-index: -1;
@@ -91,9 +125,9 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     height: 415px;
-    clip-path: polygon(0 0, 0 150px, 50% 100%, 100% 150px, 100% 0);
+    clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
     transform: translateY(-415px);
     background-color: #e9f4ef;
     z-index: -2;
@@ -197,10 +231,14 @@ export default {
       padding: 1rem 2rem;
       border: solid 3px $green--tithely;
       font-weight: 600;
-      font-size: 1.875rem;
+      font-size: 1.5rem;
       text-transform: uppercase;
       color: $green--tithely--dark;
       border-radius: 12px;
+
+      @include media-breakpoint-up(sm) {
+        font-size: 1.875rem;
+      }
 
       &:hover,
       &:focus,
@@ -222,8 +260,12 @@ export default {
       }
 
       span {
-        margin: 0 2rem;
+        margin: 0 1rem;
         line-height: 1;
+
+        @include media-breakpoint-up(sm) {
+          margin: 0 2rem;
+        }
       }
     }
   }
@@ -259,6 +301,82 @@ export default {
         height: 537px;
         background-color: #e9f4ef;
         z-index: 1;
+      }
+    }
+  }
+
+  .giving--tithely-iframe {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    transition: all 0.35s ease-in-out;
+    pointer-events: none;
+
+    &.show {
+      opacity: 1;
+      pointer-events: auto;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+
+      .giving--iframe-wrap {
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .giving--iframe-wrap {
+      position: relative;
+      width: calc(100% - 2rem);
+      height: calc(100% - 4rem);
+      position: absolute;
+      top: calc(50% + 1rem);
+      left: 50%;
+      transition: all 0.35s ease-in-out;
+      transform: translate(-50%, -100%);
+
+      @include media-breakpoint-up(sm) {
+        width: 50%;
+        height: 80%;
+        box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.4);
+      }
+
+      svg {
+        position: absolute;
+        top: -1rem;
+        right: 1rem;
+        width: 1rem;
+        height: 1rem;
+        transform: translate(100%, -100%);
+        cursor: pointer;
+
+        @include media-breakpoint-up(sm) {
+          right: -1rem;
+        }
+
+        path {
+          fill: $black;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          transform: translate(100%, -100%) scale(1.1);
+
+          path {
+            fill: $white;
+          }
+        }
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
       }
     }
   }

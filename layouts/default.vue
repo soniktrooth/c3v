@@ -2,5 +2,10 @@
   <nuxt />
 </template>
 
-<style>
+<style lang="scss">
+body {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
 </style>

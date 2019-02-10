@@ -10,17 +10,11 @@
     </div>
     <div class="find-us__map" />
     <div class="find-us__building" />
-    <building-chevron />
   </section>
 </template>
 
 <script>
-import BuildingChevron from '@/assets/svg/building-chevron.svg'
-
 export default {
-  components: {
-    BuildingChevron
-  },
   data() {
     return {}
   }
@@ -69,17 +63,12 @@ export default {
     width: 100%;
     height: 0;
     padding-bottom: 63.5%;
-    margin-bottom: 5%;
+    //margin-bottom: 5%;
     position: relative;
     background-image: url('~assets/img/building.jpg');
     background-size: cover;
-    @include media-breakpoint-up(sm) {
-      margin-bottom: 6%;
-    }
-
-    @include media-breakpoint-up(md) {
-      margin-bottom: 8%;
-    }
+    background-position: center bottom;
+    clip-path: polygon(0 0, 0 62.5%, 50% 100%, 100% 62.5%, 100% 0);
 
     & + svg {
       position: absolute;

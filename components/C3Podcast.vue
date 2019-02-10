@@ -123,8 +123,25 @@ $podcast-bottom-offset: 20rem;
   background-image: url('~assets/img/podcast.jpg');
   background-size: cover;
   background-position: center center;
-  clip-path: polygon(0 0, 0 80%, 50% 100%, 100% 80%, 100% 0);
+  background-attachment: fixed;
+  clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
   min-height: 1000px;
+
+  @include media-breakpoint-up(sm) {
+    clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
+  }
+
+  @include media-breakpoint-up(md) {
+    clip-path: polygon(0 0, 0 82%, 50% 100%, 100% 82%, 100% 0, 50% 150px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    clip-path: polygon(0 0, 0 81.5%, 50% 100%, 100% 81.5%, 100% 0, 50% 150px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
+  }
 
   h2 {
     margin-bottom: 3rem;

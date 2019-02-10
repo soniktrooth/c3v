@@ -9,6 +9,7 @@
       <a
         href="#find-us"
         class="header__down-link"
+        @click="goToFindUs()"
       >
         <C3Icon icon-name="IconChevronDown" />
       </a>
@@ -34,6 +35,11 @@ export default {
   data() {
     return {
       socialMenu: this.$store.state.socialMenu
+    }
+  },
+  methods: {
+    goToFindUs() {
+      document.querySelectorAll('#main-menu .nav-link')[0].click()
     }
   }
 }
