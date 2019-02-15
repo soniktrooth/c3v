@@ -113,7 +113,12 @@ export default {
     position: fixed;
     top: 0;
     bottom: auto;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
+
+    @supports (backdrop-filter: blur(15px)) or
+      (-webkit-backdrop-filter: blur(15px)) {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
 
     .navbar-toggler {
       height: 3rem;
@@ -122,9 +127,14 @@ export default {
 
   &.menu-open {
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.8);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+
+    @supports (backdrop-filter: blur(15px)) or
+      (-webkit-backdrop-filter: blur(15px)) {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
 
     .navbar-toggler {
       height: 5rem;

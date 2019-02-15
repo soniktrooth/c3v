@@ -39,12 +39,8 @@ export default {
   },
   fetch({ store, params }) {
     // Grab all the event markdown files and add them to the store.
-    const md = require.context('~/content/events', true, /\.md$/)
-    const mdContent = []
-    md.keys().forEach(function(key) {
-      mdContent.push(md(key))
-    })
-    store.commit('events/add', mdContent)
+    store.dispatch('fetchEvents')
+    store.dispatch('fetchPodcasts')
   },
   methods: {
     scrollSpyOffset() {

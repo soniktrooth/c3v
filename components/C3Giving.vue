@@ -33,15 +33,24 @@
         @click="toggleGiveOverlay"
       >
         <button @click="toggleGiveOverlay">
-          <icon-lock /><span>Give Now</span>
-          <icon-chevron-right />
+          <C3Icon icon-name="IconLock" />
+          <span>Give Now</span>
+          <C3Icon icon-name="IconChevronRight" />
         </button>
         <div :class="['giving--tithely-iframe', {'show': frameShow}]">
           <div class="giving--iframe-wrap">
-            <icon-close @click="toggleGiveOverlay" />
+            <C3Icon
+              icon-name="IconClose"
+              class="giving__close"
+              @click="toggleGiveOverlay"
+            />
             <iframe
               :src="frameSrc"
               frameborder="0"
+            />
+            <C3Icon
+              icon-name="IconLoader"
+              class="giving__loader"
             />
           </div>
         </div>
@@ -57,18 +66,14 @@
 import TithelyLogo from '@/assets/svg/logo--tithely.svg'
 import AppStoreLogo from '@/assets/svg/logo--app-store.svg'
 import GooglePlayLogo from '@/assets/svg/logo--google-play.svg'
-import IconLock from '@/assets/svg/icon--lock.svg'
-import IconChevronRight from '@/assets/svg/icon--chevron-right.svg'
-import IconClose from '@/assets/svg/icon--close.svg'
+import C3Icon from '@/components/C3Icon.vue'
 
 export default {
   components: {
     TithelyLogo,
     AppStoreLogo,
     GooglePlayLogo,
-    IconLock,
-    IconChevronRight,
-    IconClose
+    C3Icon
   },
   data() {
     return {
@@ -311,15 +316,21 @@ export default {
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -2;
+    background-color: rgba(0, 0, 0, 0.6);
     -webkit-backdrop-filter: blur(0px);
     backdrop-filter: blur(0px);
     opacity: 0;
     transition: all 0.35s ease-in-out;
     pointer-events: none;
 
+    @supports (backdrop-filter: blur(15px)) or
+      (-webkit-backdrop-filter: blur(15px)) {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
     &.show {
+      z-index: 999;
       opacity: 1;
       pointer-events: auto;
       -webkit-backdrop-filter: blur(5px);
@@ -331,22 +342,23 @@ export default {
     }
 
     .giving--iframe-wrap {
-      position: relative;
+      position: absolute;
       width: calc(100% - 2rem);
       height: calc(100% - 4rem);
-      position: absolute;
       top: calc(50% + 1rem);
       left: 50%;
       transition: all 0.35s ease-in-out;
       transform: translate(-50%, -100%);
+      background-color: #fff;
 
       @include media-breakpoint-up(sm) {
         width: 50%;
         height: 80%;
         box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.4);
+        max-width: 600px;
       }
 
-      svg {
+      .giving__close {
         position: absolute;
         top: -1rem;
         right: 1rem;
@@ -360,7 +372,12 @@ export default {
         }
 
         path {
-          fill: $black;
+          fill: $white;
+
+          @supports (backdrop-filter: blur(15px)) or
+            (-webkit-backdrop-filter: blur(15px)) {
+            fill: $black;
+          }
         }
 
         &:hover,
@@ -369,7 +386,12 @@ export default {
           transform: translate(100%, -100%) scale(1.1);
 
           path {
-            fill: $white;
+            fill: darken($white, 30);
+
+            @supports (backdrop-filter: blur(15px)) or
+              (-webkit-backdrop-filter: blur(15px)) {
+              fill: $white;
+            }
           }
         }
       }
@@ -377,6 +399,17 @@ export default {
       iframe {
         width: 100%;
         height: 100%;
+      }
+
+      .giving__loader {
+        width: 5rem;
+        height: 5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.35s ease-in-out;
+        z-index: -1;
       }
     }
   }

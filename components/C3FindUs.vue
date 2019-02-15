@@ -24,6 +24,7 @@ export default {
 <style lang="scss">
 #find-us {
   position: relative;
+  //background-image: url('~assets/img/forest.jpg');
 
   .find-us__map {
     width: 100%;
@@ -65,7 +66,7 @@ export default {
     padding-bottom: 63.5%;
     //margin-bottom: 5%;
     position: relative;
-    background-image: url('~assets/img/building.jpg');
+    background-image: url('~assets/img/building-2.jpg');
     background-size: cover;
     background-position: center bottom;
     clip-path: polygon(0 0, 0 62.5%, 50% 100%, 100% 62.5%, 100% 0);

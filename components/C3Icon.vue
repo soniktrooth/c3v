@@ -15,6 +15,11 @@ import IconOvercast from '@/assets/svg/icon--overcast.svg'
 import IconPocketCasts from '@/assets/svg/icon--pocket-casts.svg'
 import IconRadioPublic from '@/assets/svg/icon--radio-public.svg'
 import IconSpotify from '@/assets/svg/icon--spotify.svg'
+import IconAudio from '@/assets/svg/icon--audio.svg'
+import IconLoader from '@/assets/svg/icon--loader.svg'
+import IconLock from '@/assets/svg/icon--lock.svg'
+import IconChevronRight from '@/assets/svg/icon--chevron-right.svg'
+import IconClose from '@/assets/svg/icon--close.svg'
 
 export default {
   components: {
@@ -29,7 +34,12 @@ export default {
     IconOvercast,
     IconPocketCasts,
     IconRadioPublic,
-    IconSpotify
+    IconSpotify,
+    IconAudio,
+    IconLoader,
+    IconLock,
+    IconChevronRight,
+    IconClose
   },
   props: {
     iconName: {

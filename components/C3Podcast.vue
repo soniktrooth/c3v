@@ -5,15 +5,39 @@
     </h2>
     <div class="podcast__iframes">
       <h3>Listen Now:</h3>
-      <iframe
-        v-for="ep in episodes"
-        :key="ep.id"
-        :src="ep"
-        height="102px"
-        width="100%"
-        frameborder="0"
-        scrolling="no"
-      />
+      <div class="podcast__iframes-wrap">
+        <div
+          v-for="ep in episodes"
+          :key="ep.id"
+          :class="{'loaded': ep.load}"
+        >
+          <C3Icon
+            icon-name="IconLoader"
+            class="podcast__loader"
+          />
+          <div
+            class="podcast__preload"
+            @click="loadPlay"
+          >
+            <div>
+              <h4>{{ ep.title }}</h4>
+              <p>{{ ep.preacher }}</p>
+              <p>{{ ep.date }}</p>
+            </div>
+            <button>
+              Load Episode
+              <C3Icon icon-name="IconAudio" />
+            </button>
+          </div>
+          <iframe
+            :src="ep.load ? ep.url : ''"
+            :height="ep.load ? '102px' : ''"
+            width="100%"
+            frameborder="0"
+            scrolling="no"
+          />
+        </div>
+      </div>
     </div>
     <div class="podcast__service-links">
       <h3>Subscribe on:</h3>
@@ -44,68 +68,21 @@ export default {
   components: {
     C3Icon
   },
-  data() {
-    return {
-      episodes: this.$store.state.podcastEpisodes,
-      services: [
-        {
-          name: 'Apple Podcasts',
-          url: 'https://itunes.apple.com/us/podcast/c3-vancouver/id1416953951',
-          colour: '#9933CC',
-          icon: 'IconApplePodcasts',
-          textDark: false
-        },
-        {
-          name: 'Breaker',
-          url: 'https://www.breaker.audio/c3-church-vancouver',
-          colour: '#5D9FFF',
-          icon: 'IconBreaker',
-          textDark: false
-        },
-        {
-          name: 'Castbox',
-          url: 'https://castbox.fm/channel/id1410862?country=us',
-          colour: '#FF6D34',
-          icon: 'IconCastbox',
-          textDark: true
-        },
-        {
-          name: 'Google Podcasts',
-          url:
-            'https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy81NjkyYzRjL3BvZGNhc3QvcnNz',
-          colour: '#4285F4',
-          icon: 'IcongooglePodcasts',
-          textDark: false
-        },
-        {
-          name: 'Overcast',
-          url: 'https://overcast.fm/itunes1416953951/c3-church-vancouver',
-          colour: '#fc7e0f',
-          icon: 'IconOvercast',
-          textDark: true
-        },
-        {
-          name: 'Pocket Casts',
-          url: 'https://pca.st/5ozW',
-          colour: '#F74132',
-          icon: 'IconPocketCasts',
-          textDark: false
-        },
-        {
-          name: 'Radio Public',
-          url: 'https://radiopublic.com/c3-church-vancouver-Wa3lEb',
-          colour: '#CE202B',
-          icon: 'IconRadioPublic',
-          textDark: false
-        },
-        {
-          name: 'Spotify',
-          url: 'https://open.spotify.com/show/0p2pmUwFkTwlili2BEZXSa',
-          colour: '#1ED760',
-          icon: 'IconSpotify',
-          textDark: true
-        }
-      ]
+  computed: {
+    episodes() {
+      return this.$store.state.podcasts.episodes
+    },
+    services() {
+      return this.$store.state.podcasts.services
+    }
+  },
+
+  methods: {
+    loadPlay(event) {
+      const child = event.currentTarget.parentNode
+      const parent = document.getElementsByClassName('podcast__iframes-wrap')[0]
+      const i = Array.prototype.indexOf.call(parent.children, child)
+      this.$store.commit('podcasts/load', i)
     }
   }
 }
@@ -165,6 +142,7 @@ $podcast-bottom-offset: 20rem;
 
   .podcast__iframes {
     margin-bottom: 4rem;
+    width: 100%;
 
     @include media-breakpoint-up(md) {
       flex-basis: 60%;
@@ -177,8 +155,158 @@ $podcast-bottom-offset: 20rem;
       padding-right: 15%;
     }
 
+    .podcast__iframes-wrap {
+      > div {
+        position: relative;
+        margin-bottom: 6rem;
+        background-color: #fff;
+        border-radius: 4px;
+        line-height: 0;
+        cursor: pointer;
+
+        &:hover,
+        &:focus,
+        &:active {
+          box-shadow: 0px 0px 0px 4px $yellow;
+        }
+
+        &.loaded {
+          height: 102px;
+
+          &:hover,
+          &:focus,
+          &:active {
+            box-shadow: none;
+          }
+
+          .podcast__preload {
+            overflow: hidden;
+
+            div {
+              opacity: 0;
+              transform: translateX(-100%);
+            }
+
+            button {
+              opacity: 0;
+              transform: translateX(100%);
+            }
+          }
+
+          iframe {
+            height: 100%;
+          }
+
+          .podcast__loader {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .podcast__loader {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.35s ease-in-out;
+    }
+
+    .podcast__preload {
+      opacity: 1;
+
+      @include media-breakpoint-up(sm) {
+        display: flex;
+        height: 100%;
+      }
+
+      @include media-breakpoint-up(md) {
+        display: block;
+        //height: 100%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        //height: 100%;
+      }
+
+      > div {
+        padding: 1rem;
+        flex-basis: 80%;
+        transition: all 0.35s ease-in-out;
+      }
+
+      > button {
+        @extend .btn;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background-color: $orange;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.35s ease-in-out;
+
+        @include media-breakpoint-up(sm) {
+          width: auto;
+          border-top-right-radius: 3px;
+          border-bottom-left-radius: 0;
+        }
+
+        @include media-breakpoint-up(md) {
+          width: 100%;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+
+        @include media-breakpoint-up(lg) {
+          width: auto;
+          border-top-right-radius: 3px;
+          border-bottom-left-radius: 0;
+        }
+      }
+
+      svg {
+        width: 3rem;
+        height: 3rem;
+        margin-left: 1rem;
+
+        @include media-breakpoint-up(sm) {
+          margin-left: 0;
+        }
+
+        @include media-breakpoint-up(md) {
+          margin-left: 1rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    h4 {
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
     iframe {
       max-width: 765px;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
 
       &:not(:last-child) {
         margin-bottom: 2rem;

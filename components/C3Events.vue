@@ -23,6 +23,7 @@
         <img :src="'/events-images/' + event.attributes.image">
       </div>
     </div>
+    <div class="events__extra-chevron" />
   </section>
 </template>
 
@@ -63,13 +64,14 @@ export default {
 
 <style lang="scss">
 #events {
-  padding: 10rem 0 0;
+  padding: 13rem 0 0;
   position: relative;
 
   @include media-breakpoint-up(md) {
-    padding-top: 15rem;
+    padding-top: 21rem;
   }
 
+  .events__extra-chevron,
   &::before,
   &::after {
     content: '';
@@ -81,6 +83,7 @@ export default {
     padding-top: 37%;
     clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
     transform: translateY(-100%);
+    background-attachment: fixed;
   }
 
   &::before {
@@ -98,10 +101,24 @@ export default {
   &::after {
     transform: translateY(calc(-100% + 6rem));
     background-color: #fafafa;
+    background-image: url('~assets/img/bg-5.jpg');
+    background-size: cover;
     z-index: -2;
 
     @include media-breakpoint-up(md) {
       transform: translateY(calc(-100% + 10rem));
+    }
+  }
+
+  .events__extra-chevron {
+    transform: translateY(calc(-100% + 9rem));
+    background-color: #fafafa;
+    background-image: url('~assets/img/bg-11.jpg');
+    background-size: cover;
+    z-index: -2;
+
+    @include media-breakpoint-up(md) {
+      transform: translateY(calc(-100% + 15rem));
     }
   }
 
