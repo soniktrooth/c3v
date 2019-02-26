@@ -58,6 +58,8 @@
         </li>
       </ul>
     </div>
+    <div class="podcast__background" />
+    <div class="podcast__chevrons" />
   </section>
 </template>
 
@@ -96,28 +98,116 @@ $podcast-bottom-offset: 20rem;
   display: flex;
   flex-wrap: wrap;
   padding: ($podcast-top-offset + 3rem) 3rem $podcast-bottom-offset;
-  margin: -$podcast-top-offset 0 10rem;
-  background-image: url('~assets/img/podcast.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
-  min-height: 1000px;
+  margin: -$podcast-top-offset 0 0;
+  position: relative;
+  z-index: 0;
 
-  @include media-breakpoint-up(sm) {
-    clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
+  .podcast__chevrons,
+  .podcast__chevrons::before,
+  .podcast__chevrons::after,
+  .podcast__background {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
-  @include media-breakpoint-up(md) {
-    clip-path: polygon(0 0, 0 82%, 50% 100%, 100% 82%, 100% 0, 50% 150px);
+  .podcast__background {
+    background-size: 500%;
+    background-position: center top;
+    background-attachment: fixed;
+    clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
+
+    @include media-breakpoint-up(sm) {
+      background-size: cover;
+      background-position: center center;
+      clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
+    }
+
+    @include media-breakpoint-up(md) {
+      clip-path: polygon(0 0, 0 82%, 50% 100%, 100% 82%, 100% 0, 50% 150px);
+    }
+
+    @include media-breakpoint-up(lg) {
+      clip-path: polygon(0 0, 0 81.5%, 50% 100%, 100% 81.5%, 100% 0, 50% 150px);
+    }
+
+    @include media-breakpoint-up(lg) {
+      clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
+    }
+
+    background-image: url('~assets/img/podcast.jpg');
+    z-index: -1;
   }
 
-  @include media-breakpoint-up(lg) {
-    clip-path: polygon(0 0, 0 81.5%, 50% 100%, 100% 81.5%, 100% 0, 50% 150px);
-  }
+  .podcast__chevrons {
+    z-index: -2;
 
-  @include media-breakpoint-up(lg) {
-    clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
+    &::before {
+      background-color: #addbcb;
+      transform: translateY(2%);
+      z-index: -1;
+      clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
+
+      @include media-breakpoint-up(sm) {
+        background-size: cover;
+        background-position: center center;
+        clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
+      }
+
+      @include media-breakpoint-up(md) {
+        clip-path: polygon(0 0, 0 82%, 50% 100%, 100% 82%, 100% 0, 50% 150px);
+      }
+
+      @include media-breakpoint-up(lg) {
+        clip-path: polygon(
+          0 0,
+          0 81.5%,
+          50% 100%,
+          100% 81.5%,
+          100% 0,
+          50% 150px
+        );
+      }
+
+      @include media-breakpoint-up(lg) {
+        clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
+      }
+    }
+
+    &::after {
+      background-color: #e9f4ef;
+      transform: translateY(4%);
+      z-index: -2;
+      clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
+
+      @include media-breakpoint-up(sm) {
+        background-size: cover;
+        background-position: center center;
+        clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
+      }
+
+      @include media-breakpoint-up(md) {
+        clip-path: polygon(0 0, 0 82%, 50% 100%, 100% 82%, 100% 0, 50% 150px);
+      }
+
+      @include media-breakpoint-up(lg) {
+        clip-path: polygon(
+          0 0,
+          0 81.5%,
+          50% 100%,
+          100% 81.5%,
+          100% 0,
+          50% 150px
+        );
+      }
+
+      @include media-breakpoint-up(lg) {
+        clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
+      }
+    }
   }
 
   h2 {

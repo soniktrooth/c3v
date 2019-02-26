@@ -3,7 +3,7 @@
     <c3-header />
     <div
       id="sections"
-      v-scroll-spy="{allowNoActive: true, offset: scrollSpyOffset()}"
+      v-scroll-spy="{allowNoActive: true, offset: scrollSpyOffset(), time: 1000, steps: 50}"
     >
       <c3-find-us />
       <c3-events />

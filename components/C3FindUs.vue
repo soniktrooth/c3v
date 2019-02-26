@@ -10,6 +10,7 @@
     </div>
     <div class="find-us__map" />
     <div class="find-us__building" />
+    <div class="find-us__chevrons" />
   </section>
 </template>
 
@@ -24,7 +25,6 @@ export default {
 <style lang="scss">
 #find-us {
   position: relative;
-  //background-image: url('~assets/img/forest.jpg');
 
   .find-us__map {
     width: 100%;
@@ -64,12 +64,11 @@ export default {
     width: 100%;
     height: 0;
     padding-bottom: 63.5%;
-    //margin-bottom: 5%;
     position: relative;
     background-image: url('~assets/img/building-2.jpg');
     background-size: cover;
     background-position: center bottom;
-    clip-path: polygon(0 0, 0 62.5%, 50% 100%, 100% 62.5%, 100% 0);
+    clip-path: polygon(0 0, 0 53%, 50% 100%, 100% 53%, 100% 0);
 
     & + svg {
       position: absolute;
@@ -81,6 +80,70 @@ export default {
 
       @include media-breakpoint-up(md) {
         bottom: -8%;
+      }
+    }
+  }
+
+  .find-us__chevrons {
+    height: 0;
+    padding-bottom: 63.5%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #fafafa;
+    background-image: url('~assets/img/bg-11.jpg');
+    background-size: contain;
+    background-attachment: scroll;
+    background-position: bottom;
+    transform: translateY(55%);
+    clip-path: polygon(0 0, 0 53%, 50% 100%, 100% 53%, 100% 0);
+
+    @include media-breakpoint-up(sm) {
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    @include media-breakpoint-up(md) {
+      transform: translateY(35%);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      padding-bottom: 63.5%;
+      clip-path: polygon(0 0, 0 53%, 50% 100%, 100% 53%, 100% 0);
+      background-attachment: fixed;
+      background-repeat: repeat;
+    }
+
+    &::before {
+      background-color: #efefef;
+      background-image: url('~assets/img/bg-5.jpg');
+      background-size: contain;
+      z-index: 0;
+      transform: translateY(-34%);
+
+      @include media-breakpoint-up(md) {
+        transform: translateY(-23%);
+      }
+    }
+
+    &::after {
+      background-color: #fafafa;
+      background-image: url('~assets/img/forest.jpg');
+      background-size: contain;
+      z-index: -1;
+      transform: translateY(-17%);
+
+      @include media-breakpoint-up(md) {
+        transform: translateY(-12%);
       }
     }
   }

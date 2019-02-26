@@ -87,8 +87,6 @@ export default {
     height: 40rem;
     position: relative;
     background-color: $yellow;
-    // shape-outside: polygon(0 0, 0 80%, 50% 100%, 80% 100%, 100% 0);
-    clip-path: polygon(0 0, 0 80%, 50% 100%, 100% 80%, 100% 0);
 
     @include media-breakpoint-up(lg) {
       height: 45rem;

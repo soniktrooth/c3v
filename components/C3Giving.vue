@@ -112,31 +112,31 @@ export default {
     rgba(233, 246, 240, 1) 100%
   );
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 415px;
-    clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
-    transform: translateY(-495px);
-    background-color: #addbcb;
-    z-index: -1;
-  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 415px;
+  //   clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
+  //   transform: translateY(-495px);
+  //   background-color: #addbcb;
+  //   z-index: -1;
+  // }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 415px;
-    clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
-    transform: translateY(-415px);
-    background-color: #e9f4ef;
-    z-index: -2;
-  }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 415px;
+  //   clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
+  //   transform: translateY(-415px);
+  //   background-color: #e9f4ef;
+  //   z-index: -2;
+  // }
 
   h3 {
     padding: 3rem;
