@@ -15,9 +15,13 @@
           </a>
         </span>
         <span>
-          e. <a href="mailto:info@c3v.ca">
-            info@c3v.ca
-          </a>
+          e.
+          <span
+            class="footer__email"
+            data-user="ofni"
+            data-website="ac.v3c"
+            @click="emailClick"
+          />
         </span>
       </div>
     </div>
@@ -46,6 +50,11 @@ export default {
   components: {
     C3Social,
     C3Address
+  },
+  methods: {
+    emailClick() {
+      window.location = 'mailto:info@c3v.ca'
+    }
   }
 }
 </script>
@@ -114,7 +123,7 @@ export default {
     .footer__phone-email {
       margin-bottom: 1rem;
 
-      span {
+      > span {
         display: block;
       }
     }
@@ -152,6 +161,22 @@ export default {
     font-family: $font-family-sans-serif;
     font-style: normal;
     text-align: center;
+  }
+
+  .footer__email {
+    &::before {
+      content: attr(data-website) '\0040' attr(data-user);
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      color: $link-color;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
+    }
   }
 }
 </style>
