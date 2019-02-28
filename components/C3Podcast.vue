@@ -92,7 +92,7 @@ export default {
 
 <style lang="scss">
 $podcast-top-offset: 10rem;
-$podcast-bottom-offset: 20rem;
+$podcast-bottom-offset: 25rem;
 
 #podcast {
   display: flex;
@@ -115,27 +115,31 @@ $podcast-bottom-offset: 20rem;
   }
 
   .podcast__background {
+    top: -4%;
+    bottom: 4%;
     background-size: 500%;
     background-position: center top;
     background-attachment: fixed;
-    clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
+    clip-path: polygon(0 0, 0 86%, 50% 100%, 100% 86%, 100% 0, 50% 150px);
 
     @include media-breakpoint-up(sm) {
       background-size: cover;
       background-position: center center;
-      clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
+      clip-path: polygon(0 0, 0 84.5%, 50% 100%, 100% 84.5%, 100% 0, 50% 150px);
     }
 
     @include media-breakpoint-up(md) {
-      clip-path: polygon(0 0, 0 82%, 50% 100%, 100% 82%, 100% 0, 50% 150px);
-    }
-
-    @include media-breakpoint-up(lg) {
+      top: -6%;
+      bottom: 6%;
       clip-path: polygon(0 0, 0 81.5%, 50% 100%, 100% 81.5%, 100% 0, 50% 150px);
     }
 
     @include media-breakpoint-up(lg) {
       clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
+    }
+
+    @include media-breakpoint-up(lg) {
+      clip-path: polygon(0 0, 0 80.5%, 50% 100%, 100% 80.5%, 100% 0, 50% 150px);
     }
 
     background-image: url('~assets/img/podcast.jpg');
@@ -144,6 +148,19 @@ $podcast-bottom-offset: 20rem;
 
   .podcast__chevrons {
     z-index: -2;
+    transform: translateY(-4%);
+
+    @include media-breakpoint-up(sm) {
+      transform: translateY(-5%);
+    }
+
+    @include media-breakpoint-up(md) {
+      transform: translateY(-6%);
+    }
+
+    @include media-breakpoint-up(lg) {
+      transform: translateY(-7%);
+    }
 
     &::before {
       background-color: #addbcb;
@@ -152,6 +169,8 @@ $podcast-bottom-offset: 20rem;
       clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
 
       @include media-breakpoint-up(sm) {
+        transform: translateY(3%);
+
         background-size: cover;
         background-position: center center;
         clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
@@ -162,6 +181,8 @@ $podcast-bottom-offset: 20rem;
       }
 
       @include media-breakpoint-up(lg) {
+        transform: translateY(4.3%);
+
         clip-path: polygon(
           0 0,
           0 81.5%,
@@ -172,7 +193,7 @@ $podcast-bottom-offset: 20rem;
         );
       }
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
       }
     }
@@ -184,16 +205,19 @@ $podcast-bottom-offset: 20rem;
       clip-path: polygon(0 0, 0 86.5%, 50% 100%, 100% 86.5%, 100% 0, 50% 150px);
 
       @include media-breakpoint-up(sm) {
+        transform: translateY(5%);
         background-size: cover;
         background-position: center center;
         clip-path: polygon(0 0, 0 85%, 50% 100%, 100% 85%, 100% 0, 50% 150px);
       }
 
       @include media-breakpoint-up(md) {
+        transform: translateY(6%);
         clip-path: polygon(0 0, 0 82%, 50% 100%, 100% 82%, 100% 0, 50% 150px);
       }
 
       @include media-breakpoint-up(lg) {
+        transform: translateY(7%);
         clip-path: polygon(
           0 0,
           0 81.5%,
@@ -204,7 +228,7 @@ $podcast-bottom-offset: 20rem;
         );
       }
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         clip-path: polygon(0 0, 0 81%, 50% 100%, 100% 81%, 100% 0, 50% 150px);
       }
     }

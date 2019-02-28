@@ -112,32 +112,6 @@ export default {
     rgba(233, 246, 240, 1) 100%
   );
 
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 415px;
-  //   clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
-  //   transform: translateY(-495px);
-  //   background-color: #addbcb;
-  //   z-index: -1;
-  // }
-
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 415px;
-  //   clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
-  //   transform: translateY(-415px);
-  //   background-color: #e9f4ef;
-  //   z-index: -2;
-  // }
-
   h3 {
     padding: 3rem;
     font-size: 3rem;
@@ -153,7 +127,7 @@ export default {
 
     @include media-breakpoint-up(md) {
       display: flex;
-      align-items: center;
+      align-items: bottom;
     }
 
     > div {
@@ -193,6 +167,14 @@ export default {
 
       &:not(:last-child) {
         margin-right: 2rem;
+
+        @include media-breakpoint-up(md) {
+          margin-right: 1rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          margin-right: 2rem;
+        }
       }
 
       &:hover,
@@ -211,6 +193,9 @@ export default {
   }
 
   .giving--or {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 3rem 0;
     font-family: $font-family-serif;
     font-size: 2.25rem;
@@ -218,6 +203,7 @@ export default {
 
     @include media-breakpoint-up(md) {
       margin: 0;
+      padding: 0 1rem;
     }
   }
 

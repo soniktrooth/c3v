@@ -25,10 +25,22 @@
     <div class="about-us__our-mission">
       <h3>Our Mission</h3>
       <ul>
-        <li><span>Redeem</span> the unchurched</li>
-        <li><span>Retrieve</span> the over-churched</li>
-        <li><span>Revive</span> the churched</li>
-        <li><span>Release</span> the Church</li>
+        <li>
+          <div>Redeem</div>
+          <div> the unchurched</div>
+        </li>
+        <li>
+          <div>Retrieve</div>
+          <div> the over-churched</div>
+        </li>
+        <li>
+          <div>Revive</div>
+          <div> the churched</div>
+        </li>
+        <li>
+          <div>Release</div>
+          <div> the Church</div>
+        </li>
       </ul>
       <div
         class="bg"
@@ -84,29 +96,51 @@ export default {
   }
 
   .about-us__our-mission {
-    height: 40rem;
     position: relative;
     background-color: $yellow;
 
-    @include media-breakpoint-up(lg) {
-      height: 45rem;
-    }
-
-    @include media-breakpoint-up(xl) {
-      height: 50rem;
-    }
-
     h3 {
       color: $white;
-      width: 105%;
+      width: 106%;
       margin-left: -2.5%;
-      font-size: 14.2vw;
+      font-size: 14vw;
+
+      // Beware of impending breakpoint ugliness to get the heading to be
+      // constantly a little bit bigger than the viewport.
+      @include media-breakpoint-up(xs) {
+        font-size: 14.2vw;
+      }
+
+      @media (min-width: 441px) {
+        font-size: 14.3vw;
+      }
+
+      @media (min-width: 461px) {
+        font-size: 14.5vw;
+      }
+
+      @media (min-width: 493px) {
+        font-size: 14.6vw;
+      }
+
       @include media-breakpoint-up(sm) {
         font-size: 14.7vw;
       }
 
+      @media (min-width: 596px) {
+        font-size: 14.8vw;
+      }
+
+      @media (min-width: 685px) {
+        font-size: 14.9vw;
+      }
+
       @include media-breakpoint-up(md) {
         font-size: 15vw;
+      }
+
+      @media (min-width: 898px) {
+        font-size: 15.1vw;
       }
 
       @include media-breakpoint-up(lg) {
@@ -119,8 +153,8 @@ export default {
     }
 
     ul {
-      padding: 0;
-      margin: 5rem 0 0;
+      padding: 0 0 15rem;
+      margin: 3rem 0 0 2rem;
       font-family: $font-family-serif;
       font-size: 1.875rem;
       list-style: none;
@@ -128,30 +162,47 @@ export default {
       font-style: italic;
 
       @include media-breakpoint-up(sm) {
-        width: 75%;
-        margin-top: 3rem;
-        font-size: 2.575rem;
-        text-align: right;
+        //width: 75%;
+        font-size: 2.4rem;
+        text-align: left;
       }
 
       @include media-breakpoint-up(md) {
-        width: 50%;
+        //width: 50%;
+        padding-bottom: 15rem;
+        font-size: 2.575rem;
       }
 
       @include media-breakpoint-up(lg) {
-        width: 50%;
+        //width: 50%;
         font-size: 2.875rem;
       }
 
       li {
         margin-bottom: 2rem;
+        display: flex;
 
         @include media-breakpoint-up(sm) {
           margin-bottom: 1rem;
         }
 
-        span {
-          font-weight: 600;
+        div {
+          &:first-child {
+            padding-right: 0.5rem;
+            text-align: right;
+            font-weight: 600;
+
+            @include media-breakpoint-up(sm) {
+              padding-right: 2rem;
+              width: 50%;
+            }
+          }
+
+          &:last-child {
+            @include media-breakpoint-up(sm) {
+              width: 50%;
+            }
+          }
         }
       }
     }
