@@ -22,7 +22,6 @@
             <div>
               <h4>{{ ep.title }}</h4>
               <p>{{ ep.preacher }}</p>
-              <p>{{ ep.date }}</p>
             </div>
             <button>
               Load Episode
@@ -72,7 +71,8 @@ export default {
   },
   computed: {
     episodes() {
-      return this.$store.state.podcasts.episodes
+      // eslint-disable-next-line
+      return _.orderBy(this.$store.state.podcasts.episodes, 'order', 'asc')
     },
     services() {
       return this.$store.state.podcasts.services
@@ -91,16 +91,21 @@ export default {
 </script>
 
 <style lang="scss">
+$podcast-top-offset--xs: 5rem;
 $podcast-top-offset: 10rem;
 $podcast-bottom-offset: 25rem;
 
 #podcast {
   display: flex;
   flex-wrap: wrap;
-  padding: ($podcast-top-offset + 3rem) 3rem $podcast-bottom-offset;
+  padding: ($podcast-top-offset--xs + 3rem) 3rem $podcast-bottom-offset;
   margin: -$podcast-top-offset 0 0;
   position: relative;
   z-index: 0;
+
+  @include media-breakpoint-up(sm) {
+    padding-top: ($podcast-top-offset + 3rem);
+  }
 
   .podcast__chevrons,
   .podcast__chevrons::before,
@@ -255,7 +260,6 @@ $podcast-bottom-offset: 25rem;
   }
 
   .podcast__iframes {
-    margin-bottom: 4rem;
     width: 100%;
 
     @include media-breakpoint-up(md) {

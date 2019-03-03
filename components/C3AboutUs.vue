@@ -1,25 +1,27 @@
 <template>
   <section id="about-us">
-    <h2 class="sr-only">
+    <h2>
       About Us
     </h2>
     <div class="about-us__pastors">
       <div>
-        <h3>
-          Kat Walker, <br>Fletch & Patti
-        </h3>
-        <p>
-          Katherine is wonderful person that needs to be talked about in this section in some detail etc.
-        </p>
-        <p>
-          Graham & Patricia Fletcher established C3 Church Vancouver in 2001. They have been in full time ministry since 1971 as pastors and church planters in Australia and Canada.
-        </p>
-        <p>
-          Patti—as she is affectionately known—is an ordained Senior Minister of C3 Global.
-        </p>
-        <p>
-          Graham itinerates abroad in prophetic & Bible teaching and is known as ‘Fletch' amongst the churches he ministers at.
-        </p>
+        <div class="about-us__bio">
+          <h3>
+            Kat Walker, <br>Fletch & Patti
+          </h3>
+          <p>
+            Katherine Walker has held ministry positions in C3 Churches for over 20 years, in Australia and Canada. She holds a degree in film and television production and has success in business. Kat is a powerful, insightful preacher with all the necessary creative ideas and leadership gifts to be Executive Pastor of C3 Church Vancouver.
+          </p>
+          <p>
+            Graham & Patricia Fletcher established C3 Church Vancouver in 2001. They have been in full time ministry since 1971 as pastors and church planters in Australia and Canada.
+          </p>
+          <p>
+            Patti—as she is affectionately known—is an ordained Senior Minister of C3 Global and the Senior Pastor of C3 Church, Vancouver. She is skilled in mentoring and the church loves her straight-forward preaching.
+          </p>
+          <p>
+            Graham–known as ‘Fletch'–itinerates internationally across denominational lines in prophetic ministry and inspirational Bible teaching, and maintains a place in the ministry team and leadership of C3 Church Vancouver.
+          </p>
+        </div>
       </div>
     </div>
     <div class="about-us__our-mission">
@@ -65,32 +67,70 @@ export default {
 #about-us {
   overflow: hidden;
 
-  .about-us__pastors {
-    padding-top: 25rem;
-    background-image: url('~assets/img/about-us.jpg');
-    background-size: 200%;
-    background-position: top right;
-    background-repeat: no-repeat;
+  h2 {
+    font-size: 19vw;
+    width: 108%;
+    margin-left: -2.5%;
+    transform: translateY(45%);
+
+    @include media-breakpoint-up(xs) {
+      font-size: 19.5vw;
+    }
 
     @include media-breakpoint-up(md) {
+      font-size: 20vw;
+    }
+  }
+
+  .about-us__pastors {
+    padding-top: 18rem;
+    background-image: url('~assets/img/about-us.jpg');
+    background-size: 200%;
+    background-position: 90% 0;
+    background-repeat: no-repeat;
+
+    @include media-breakpoint-up(xs) {
+      padding-top: 24rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+      background-position-y: calc(0% - 110px);
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 29rem;
+      background-position-y: calc(0% - 180px);
+    }
+
+    @include media-breakpoint-up(lg) {
       padding-top: 0;
       background-size: cover;
-      background-position: center right;
+      background-position: 60% 0;
     }
 
     > div {
       @extend %container;
-      padding: 3rem;
+      padding: 0;
       background-color: #fff;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
+        padding: 3rem 0;
         background-color: transparent;
       }
 
-      p {
-        max-width: 30rem;
+      @include media-breakpoint-up(xl) {
+        padding-left: 3rem;
+      }
+
+      .about-us__bio {
+        @extend %font-family-serif;
+        padding: 3rem;
         font-size: 1.25rem;
-        font-family: $font-family-serif;
+
+        @include media-breakpoint-up(lg) {
+          max-width: 36rem;
+          background-color: rgba($white, 0.7);
+        }
       }
     }
   }
@@ -100,10 +140,12 @@ export default {
     background-color: $yellow;
 
     h3 {
-      color: $white;
+      position: relative;
       width: 106%;
       margin-left: -2.5%;
       font-size: 14vw;
+      color: $white;
+      z-index: 2;
 
       // Beware of impending breakpoint ugliness to get the heading to be
       // constantly a little bit bigger than the viewport.
@@ -162,19 +204,16 @@ export default {
       font-style: italic;
 
       @include media-breakpoint-up(sm) {
-        //width: 75%;
         font-size: 2.4rem;
         text-align: left;
       }
 
       @include media-breakpoint-up(md) {
-        //width: 50%;
         padding-bottom: 15rem;
         font-size: 2.575rem;
       }
 
       @include media-breakpoint-up(lg) {
-        //width: 50%;
         font-size: 2.875rem;
       }
 
@@ -208,6 +247,7 @@ export default {
     }
 
     .bg {
+      @extend %font-family-serif;
       position: absolute;
       top: -10rem;
       left: -10rem;
@@ -215,11 +255,10 @@ export default {
       bottom: -10rem;
       font-size: 15.75rem;
       font-style: italic;
-      font-family: $font-family-serif;
       line-height: 0.5;
       transform: rotate(10deg);
       opacity: 0.02;
-      z-index: -1;
+      z-index: 0;
 
       span {
         font-weight: 600;

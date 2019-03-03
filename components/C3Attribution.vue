@@ -8,7 +8,10 @@
         <p>
           C3 Church Vancouver is recognised as a Full Member Church of C3 Church Global.
         </p>
-        <a href="http://c3churchglobal.com">
+        <a
+          href="http://c3churchglobal.com"
+          target="_blank"
+        >
           http://c3churchglobal.com
         </a>
       </div>
@@ -40,12 +43,31 @@ export default {
   > div {
     @extend %container;
     display: flex;
-    padding: 4rem 3rem;
+    justify-content: space-evenly;
+    padding: 4rem 0;
+
+    @include media-breakpoint-up(md) {
+      padding: 4rem 3rem;
+      justify-content: flex-start;
+    }
+
+    > div {
+      &:last-child {
+        max-width: 60%;
+
+        @include media-breakpoint-up(md) {
+          max-width: 100%;
+        }
+      }
+    }
   }
 
   svg {
     width: 3rem;
-    margin-right: 3rem;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 3rem;
+    }
   }
 
   a {

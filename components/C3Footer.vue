@@ -1,44 +1,46 @@
 <template>
   <footer id="footer">
-    <div class="footer__header-social">
-      <h2>
-        C3 Church <span>Vancouver</span>
-      </h2>
-      <c3-social color="black" />
-    </div>
-    <div class="footer__address-phone">
-      <c3-address />
-      <div class="footer__phone-email">
-        <span>
-          ph. <a tel="+16042500111">
-            604 250 0111
-          </a>
-        </span>
-        <span>
-          e.
-          <span
-            class="footer__email"
-            data-user="ofni"
-            data-website="ac.v3c"
-            @click="emailClick"
-          />
-        </span>
+    <div>
+      <div class="footer__header-social">
+        <h2>
+          C3 Church <span>Vancouver</span>
+        </h2>
+        <c3-social color="black" />
       </div>
-    </div>
-    <div class="footer__info-hours">
-      <div class="footer__more-info">
-        <p style="display: none;">
-          For information about the ‘CROSSTOWN facility
-          please visit http://c3v.ca/crosstown
-        </p>
+      <div class="footer__address-phone">
+        <c3-address />
+        <div class="footer__phone-email">
+          <span>
+            ph. <a tel="+16042500111">
+              604 250 0111
+            </a>
+          </span>
+          <span>
+            e.
+            <span
+              class="footer__email"
+              data-user="ofni"
+              data-website="ac.v3c"
+              @click="emailClick"
+            />
+          </span>
+        </div>
       </div>
-      <div class="footer__office-hours">
-        Office hours vary. Please contact for an appointment.
+      <div class="footer__info-hours">
+        <div class="footer__more-info">
+          <p style="display: none;">
+            For information about the ‘CROSSTOWN facility
+            please visit http://c3v.ca/crosstown
+          </p>
+        </div>
+        <div class="footer__office-hours">
+          Office hours vary. Please contact for an appointment.
+        </div>
       </div>
+      <p class="footer__copyright">
+        © Copyright 2019. Christian City Church Vancouver
+      </p>
     </div>
-    <p class="footer__copyright">
-      © Copyright 2019. Christian City Church Vancouver
-    </p>
   </footer>
 </template>
 
@@ -62,7 +64,7 @@ export default {
 <style lang="scss">
 #footer {
   position: relative;
-  padding: 4rem 3rem 0;
+  padding: 4rem 2rem 0;
   font-family: $font-family-serif;
   font-style: italic;
   font-size: 1.125rem;
@@ -87,6 +89,10 @@ export default {
     @include media-breakpoint-up(md) {
       background-size: contain;
     }
+  }
+
+  > div {
+    @extend .container;
   }
 
   h2 {

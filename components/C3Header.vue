@@ -89,15 +89,15 @@ header {
   }
 
   .header__down-link {
-    display: block;
-    padding-bottom: calc(5rem + 25%);
+    display: inline-block;
+    margin-bottom: calc(5rem + 25%);
 
     @include media-breakpoint-up(sm) {
-      padding-bottom: calc(5rem + 20%);
+      margin-bottom: calc(5rem + 20%);
     }
 
     @include media-breakpoint-up(md) {
-      padding-bottom: calc(5rem + 10%);
+      margin-bottom: calc(5rem + 10%);
     }
   }
 }

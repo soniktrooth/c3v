@@ -20,7 +20,10 @@
           >
             <app-store-logo />
           </a>
-          <a href="https://play.google.com/store/apps/details?id=ly.tithe.tithely&hl=en">
+          <a
+            href="https://play.google.com/store/apps/details?id=ly.tithe.tithely&hl=en"
+            target="_blank"
+          >
             <google-play-logo />
           </a>
         </div>

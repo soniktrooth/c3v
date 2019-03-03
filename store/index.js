@@ -21,10 +21,6 @@ export const state = () => ({
     {
       title: 'Giving',
       url: '#giving'
-    },
-    {
-      title: "'crosstown",
-      url: '#crosstown'
     }
   ],
   socialMenu: {

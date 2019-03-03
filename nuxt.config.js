@@ -97,7 +97,8 @@ module.exports = {
     vendor: ['jquery', 'bootstrap'],
     plugins: [
       new webpack.ProvidePlugin({
-        $: 'jquery'
+        $: 'jquery',
+        _: 'lodash'
       })
     ],
     /*

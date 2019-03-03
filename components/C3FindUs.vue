@@ -5,17 +5,31 @@
     </h2>
     <div class="find-us__we-meet">
       <p>
-        <span>We meet every Sunday at 10:30am</span> on the corner of Broadway St & Ontario St,<br> Vancouver B.C.
+        <span>We meet every Sunday at 10:30am</span> at 2520 Ontario St,<br> Vancouver B.C.
       </p>
     </div>
-    <div class="find-us__map" />
-    <div class="find-us__building" />
+    <div class="find-us__map">
+      <find-us-here-sm class="find-us__arrow find-us__arrow--sm" />
+      <find-us-here-lg class="find-us__arrow find-us__arrow--lg" />
+    </div>
+    <div class="find-us__building">
+      <!-- <entrance-corner class="find-us__entrance-corner" /> -->
+    </div>
     <div class="find-us__chevrons" />
   </section>
 </template>
 
 <script>
+import FindUsHereSm from '@/assets/svg/find-us-here--sm.svg'
+import FindUsHereLg from '@/assets/svg/find-us-here--lg.svg'
+// import EntranceCorner from '@/assets/svg/entrance-corner.svg'
+
 export default {
+  components: {
+    FindUsHereSm,
+    FindUsHereLg
+    // EntranceCorner
+  },
   data() {
     return {}
   }
@@ -30,9 +44,38 @@ export default {
     width: 100%;
     height: 37.5rem;
     padding-bottom: 51.33%;
+    position: relative;
     background-image: url('~assets/img/map.png');
     background-size: cover;
     background-position: center;
+
+    @include media-breakpoint-up(xl) {
+      padding-bottom: 0;
+      background-size: contain;
+    }
+
+    .find-us__arrow {
+      position: absolute;
+      top: calc(50% + 131px);
+      left: calc(50% - 156px);
+
+      &.find-us__arrow--sm {
+        @include media-breakpoint-up(md) {
+          display: none;
+        }
+      }
+
+      &.find-us__arrow--lg {
+        top: calc(50% + 44px);
+        left: calc(50% - 315px);
+
+        display: none;
+
+        @include media-breakpoint-up(md) {
+          display: block;
+        }
+      }
+    }
   }
 
   .find-us__we-meet {
@@ -41,6 +84,7 @@ export default {
     left: 0;
     right: 0;
     background-image: radial-gradient(rgba(#bdca07, 0.8), rgba(#848b1d, 0.8));
+    z-index: 1;
 
     p {
       @extend %container;
@@ -81,6 +125,14 @@ export default {
       @include media-breakpoint-up(md) {
         bottom: -8%;
       }
+    }
+
+    .find-us__entrance-corner {
+      height: 0;
+      padding-bottom: 98%;
+      position: absolute;
+      top: 30px;
+      right: 30px;
     }
   }
 

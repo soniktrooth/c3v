@@ -39,7 +39,8 @@ export default {
   },
   computed: {
     events() {
-      return this.$store.state.events.list
+      // eslint-disable-next-line
+      return _.orderBy(this.$store.state.events.list, 'order', 'asc')
     },
     featured() {
       return this.$store.state.events.featured
@@ -55,7 +56,6 @@ export default {
   },
   methods: {
     eventExpired(event) {
-      debugger
       return Date.now() > Date.parse(event.attributes.exp_date)
     }
   }
@@ -70,57 +70,6 @@ export default {
   @include media-breakpoint-up(md) {
     padding-top: 21rem;
   }
-
-  // .events__extra-chevron,
-  // &::before,
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   height: 0;
-  //   padding-top: 37%;
-  //   clip-path: polygon(0 0, 0 38%, 50% 100%, 100% 38%, 100% 0);
-  //   transform: translateY(-100%);
-  //   background-attachment: fixed;
-  // }
-
-  // &::before {
-  //   transform: translateY(calc(-100% + 3rem));
-  //   background-color: #efefef;
-  //   background-image: url('~assets/img/forest.jpg');
-  //   background-size: contain;
-  //   z-index: -1;
-
-  //   @include media-breakpoint-up(md) {
-  //     transform: translateY(calc(-100% + 5rem));
-  //   }
-  // }
-
-  // &::after {
-  //   transform: translateY(calc(-100% + 6rem));
-  //   background-color: #fafafa;
-  //   background-image: url('~assets/img/bg-5.jpg');
-  //   background-size: cover;
-  //   z-index: -2;
-
-  //   @include media-breakpoint-up(md) {
-  //     transform: translateY(calc(-100% + 10rem));
-  //   }
-  // }
-
-  // .events__extra-chevron {
-  //   transform: translateY(calc(-100% + 9rem));
-  //   background-color: #fafafa;
-  //   background-image: url('~assets/img/bg-11.jpg');
-  //   background-size: cover;
-  //   z-index: -2;
-
-  //   @include media-breakpoint-up(md) {
-  //     transform: translateY(calc(-100% + 15rem));
-  //   }
-  // }
 
   .events__list {
     @extend %container;

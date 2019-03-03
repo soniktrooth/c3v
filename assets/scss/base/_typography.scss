@@ -30,3 +30,8 @@ h2 {
 h3 {
   @extend %h3;
 }
+
+%font-family-serif {
+  font-family: $font-family-serif;
+  font-weight: 400;
+}

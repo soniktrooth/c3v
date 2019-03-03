@@ -18,11 +18,12 @@ export const mutations = {
         const pub = Date.parse(item.attributes.pub_date)
         const exp = Date.parse(item.attributes.exp_date)
         const now = Date.now()
-        if (pub > now && exp < now) {
+        if (pub < now && exp > now) {
           events.splice(i, 1)
         }
       }
     })
-    state.list = events
+    // eslint-disable-next-line
+    state.list = _.orderBy(events, 'attributes.order', 'asc')
   }
 }
