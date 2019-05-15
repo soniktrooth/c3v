@@ -42,7 +42,8 @@ export const state = () => ({
     locality: 'Vancouver',
     region: 'British Columbia',
     postcode: 'V5T1V6'
-  }
+  },
+  bodyScroll: true
 })
 
 // Note the duplication in fetchEvents and fetchPodcasts. Webpack requires
@@ -57,6 +58,7 @@ export const actions = {
     md.keys().forEach(function(key) {
       mdContent.push(md(key))
     })
+
     commit('events/add', mdContent)
   },
   fetchPodcasts({ commit }) {
@@ -67,5 +69,12 @@ export const actions = {
       mdContent.push(md(key))
     })
     commit('podcasts/add', mdContent)
+  },
+  bodyScrollToggle() {
+    const vpH = window.innerHeight
+    const body = document.getElementsByTagName('BODY')[0]
+    document.documentElement.style.height = vpH.toString() + 'px'
+    body.style.height = vpH.toString() + 'px'
+    body.document.getElementsByTagName('BODY')[0].classList.toggle('no-scroll')
   }
 }

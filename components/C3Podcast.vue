@@ -72,7 +72,7 @@ export default {
   computed: {
     episodes() {
       // eslint-disable-next-line
-      return _.orderBy(this.$store.state.podcasts.episodes, 'order', 'asc')
+      return this.$store.state.podcasts.episodes
     },
     services() {
       return this.$store.state.podcasts.services

@@ -22,13 +22,29 @@ module.exports = {
         hid: 'description',
         name: 'description',
         content: pkg.description
+      },
+      {
+        name: 'google-site-verification',
+        content: 'WAoUuDgTAfBrSCnqTEbnrqPtLDldtTaCcBz1NyGK6M0'
       }
     ],
     link: [
       {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      },
+      {
         rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico'
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png'
       }
     ],
     script: [
@@ -87,10 +103,10 @@ module.exports = {
   /*
    ** Build configuration
    */
+  styleResources: {
+    scss: require('./assets/scss/imports.js')
+  },
   build: {
-    styleResources: {
-      scss: require('./assets/scss/imports.js')
-    },
     /**
      * add external plugins
      */

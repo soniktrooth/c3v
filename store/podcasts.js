@@ -69,7 +69,9 @@ export const mutations = {
     podcasts.forEach((item, i) => {
       pc.push(item.attributes)
     })
-    state.episodes = pc
+
+    // eslint-disable-next-line
+    state.episodes = _.orderBy(pc, 'attributes.order', 'asc')
   },
   load(state, i) {
     state.episodes[i].load = true

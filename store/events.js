@@ -1,4 +1,5 @@
 import 'vuex'
+const _ = require('lodash')
 
 export const state = () => ({
   list: [],
@@ -7,23 +8,22 @@ export const state = () => ({
 
 export const mutations = {
   add(state, events) {
-    events.forEach((item, i) => {
-      // If the event has the featured flag then remove it and add it to the
-      // featured list.
-      if (item.attributes.featured) {
-        state.featured.push(events[i])
-        events.splice(i, 1)
-      } else {
-        // Remove expired posts from the list.
-        const pub = Date.parse(item.attributes.pub_date)
-        const exp = Date.parse(item.attributes.exp_date)
-        const now = Date.now()
-        if (pub < now && exp > now) {
-          events.splice(i, 1)
-        }
-      }
+    // Pull out featured image items and stick them in the featured store.
+    const featured = _.find(events, item => {
+      return item.attributes.featured
     })
-    // eslint-disable-next-line
+    state.featured.push(featured)
+    _.remove(events, featured)
+
+    // Remove events that shouldn't show based on publish or expiry dates.
+    _.remove(events, item => {
+      const pub = Date.parse(item.attributes.pub_date)
+      const exp = Date.parse(item.attributes.exp_date)
+      const now = Date.now()
+      return exp < now || pub > now
+    })
+
+    // Sort the list by order.
     state.list = _.orderBy(events, 'attributes.order', 'asc')
   }
 }

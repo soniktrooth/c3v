@@ -84,8 +84,7 @@ export default {
     },
     menuToggle() {
       this.menuOpen = !this.menuOpen
-      // Prevent the body from scrolling when the overlay is showing.
-      document.getElementsByTagName('BODY')[0].classList.toggle('no-scroll')
+      this.store.actions.bodyScrollToggle()
     },
     closeMenu() {
       // Only on mobile.

@@ -56,6 +56,7 @@ export default {
   },
   methods: {
     eventExpired(event) {
+      // return Date.now() > Date.parse(event.attributes.exp_date)
       return Date.now() > Date.parse(event.attributes.exp_date)
     }
   }
