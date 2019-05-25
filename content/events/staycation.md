@@ -4,7 +4,7 @@ exp_date: '2019-06-24'
 title: 'Family Staycation'
 event_date: '2019-06-21'
 featured: true
-image: staycation.jpeg
+image: staycation-min.jpeg
 order: '6'
 ---
 
