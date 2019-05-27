@@ -8,14 +8,17 @@
         <span>We meet every Sunday at 10:30am</span> at 2520 Ontario St,<br> Vancouver B.C.
       </p>
     </div>
-    <div class="find-us__map">
+    <div v-lazy:background-image="mapUrl" class="find-us__map">
       <find-us-here-sm class="find-us__arrow find-us__arrow--sm" />
       <find-us-here-lg class="find-us__arrow find-us__arrow--lg" />
     </div>
-    <div class="find-us__building">
+    <div v-lazy:background-image="buildingUrl" class="find-us__building">
       <!-- <entrance-corner class="find-us__entrance-corner" /> -->
     </div>
-    <div class="find-us__chevrons" />
+    <div v-lazy:background-image="chev1Url" class="find-us__chevrons">
+      <div v-lazy:background-image="chev2Url" class="find-us__chevron--2" />
+      <div v-lazy:background-image="chev3Url" class="find-us__chevron--3" />
+    </div>
   </section>
 </template>
 
@@ -31,7 +34,13 @@ export default {
     // EntranceCorner
   },
   data() {
-    return {}
+    return {
+      mapUrl: require('@/assets/img/map.png'),
+      buildingUrl: require('@/assets/img/building-2.jpg'),
+      chev1Url: require('@/assets/img/bg-11.jpg'),
+      chev2Url: require('@/assets/img/bg-5.jpg'),
+      chev3Url: require('@/assets/img/forest.jpg')
+    }
   }
 }
 </script>
@@ -45,7 +54,6 @@ export default {
     height: 37.5rem;
     padding-bottom: 51.33%;
     position: relative;
-    background-image: url('~assets/img/map.png');
     background-size: cover;
     background-position: center;
 
@@ -109,7 +117,6 @@ export default {
     height: 0;
     padding-bottom: 63.5%;
     position: relative;
-    background-image: url('~assets/img/building-2.jpg');
     background-size: cover;
     background-position: center bottom;
     clip-path: polygon(0 0, 0 53%, 50% 100%, 100% 53%, 100% 0);
@@ -145,7 +152,6 @@ export default {
     right: 0;
     z-index: -1;
     background-color: #fafafa;
-    background-image: url('~assets/img/bg-11.jpg');
     background-size: contain;
     background-attachment: scroll;
     background-position: bottom;
@@ -161,9 +167,8 @@ export default {
       transform: translateY(35%);
     }
 
-    &::before,
-    &::after {
-      content: '';
+    .find-us__chevron--2,
+    .find-us__chevron--3 {
       position: absolute;
       top: 0;
       left: 0;
@@ -175,9 +180,8 @@ export default {
       background-repeat: repeat;
     }
 
-    &::before {
+    .find-us__chevron--2 {
       background-color: #efefef;
-      background-image: url('~assets/img/bg-5.jpg');
       background-size: contain;
       z-index: 0;
       transform: translateY(-34%);
@@ -187,9 +191,8 @@ export default {
       }
     }
 
-    &::after {
+    .find-us__chevron--3 {
       background-color: #fafafa;
-      background-image: url('~assets/img/forest.jpg');
       background-size: contain;
       z-index: -1;
       transform: translateY(-17%);

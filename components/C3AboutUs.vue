@@ -3,7 +3,7 @@
     <h2>
       About Us
     </h2>
-    <div class="about-us__pastors">
+    <div v-lazy:background-image="imgUrl" class="about-us__pastors">
       <div>
         <div class="about-us__bio">
           <h3>
@@ -58,7 +58,9 @@
 export default {
   components: {},
   data() {
-    return {}
+    return {
+      imgUrl: require('@/assets/img/about-us.jpg')
+    }
   }
 }
 </script>
@@ -84,7 +86,6 @@ export default {
 
   .about-us__pastors {
     padding-top: 18rem;
-    background-image: url('~assets/img/about-us.jpg');
     background-size: 200%;
     background-position: 90% 0;
     background-repeat: no-repeat;

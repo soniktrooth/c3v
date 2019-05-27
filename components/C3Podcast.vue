@@ -57,7 +57,7 @@
         </li>
       </ul>
     </div>
-    <div class="podcast__background" />
+    <div v-lazy:background-image="imgUrl" class="podcast__background" />
     <div class="podcast__chevrons" />
   </section>
 </template>
@@ -69,6 +69,11 @@ export default {
   components: {
     C3Icon
   },
+  data() {
+    return {
+      imgUrl: require('@/assets/img/podcast.jpg')
+    }
+  },
   computed: {
     episodes() {
       // eslint-disable-next-line
@@ -78,7 +83,6 @@ export default {
       return this.$store.state.podcasts.services
     }
   },
-
   methods: {
     loadPlay(event) {
       const child = event.currentTarget.parentNode
@@ -147,7 +151,6 @@ $podcast-bottom-offset: 25rem;
       clip-path: polygon(0 0, 0 80.5%, 50% 100%, 100% 80.5%, 100% 0, 50% 150px);
     }
 
-    background-image: url('~assets/img/podcast.jpg');
     z-index: -1;
   }
 

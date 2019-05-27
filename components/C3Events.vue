@@ -20,7 +20,7 @@
         <div class="events__details sr-only">
           <c3-event :event="event" />
         </div>
-        <img :src="'/events-images/' + event.attributes.image">
+        <img v-lazy="require('@/assets/events-images/' + event.attributes.image)">
       </div>
     </div>
     <div class="events__extra-chevron" />
@@ -44,14 +44,6 @@ export default {
     },
     featured() {
       return this.$store.state.events.featured
-    },
-    featuredImages() {
-      const imgs = []
-      this.featured.forEach(item => {
-        const src = '/events-images/' + item.attributes.image
-        imgs.push(src)
-      })
-      return imgs
     }
   },
   methods: {

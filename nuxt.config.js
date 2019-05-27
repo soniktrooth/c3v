@@ -49,7 +49,7 @@ module.exports = {
     ],
     script: [
       {
-        src: '/js/jquery.min.js'
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
       },
       {
         src: '/js/bootstrap/util.js'
@@ -82,13 +82,15 @@ module.exports = {
     {
       src: '~/plugins/vue2-scrollspy',
       ssr: false
-    }
+    },
+    { src: '~/plugins/vue-lazyload', ssr: false }
   ],
 
   /*
    ** Nuxt.js modules
    */
   modules: [
+    '@bazzite/nuxt-optimized-images',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
     // Doc: https://bootstrap-vue.js.org/docs/
@@ -99,7 +101,17 @@ module.exports = {
       }
     ]
   ],
-
+  optimizedImages: {
+    optimizeImages: true
+  },
+  render: {
+    // Set cache expire on static resources.
+    static: {
+      immutable: true,
+      cacheControl: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+  },
   /*
    ** Build configuration
    */

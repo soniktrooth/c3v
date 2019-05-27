@@ -41,6 +41,7 @@
         © Copyright 2019. Christian City Church Vancouver
       </p>
     </div>
+    <div v-lazy:background-image="imgUrl" class="footer__bg" />
   </footer>
 </template>
 
@@ -52,6 +53,11 @@ export default {
   components: {
     C3Social,
     C3Address
+  },
+  data() {
+    return {
+      imgUrl: require('@/assets/img/footer-bg.jpg')
+    }
   },
   methods: {
     emailClick() {
@@ -73,14 +79,12 @@ export default {
     padding-top: 8rem;
   }
 
-  &:after {
-    content: '';
+  .footer__bg {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('~assets/img/footer-bg.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     opacity: 0.25;
@@ -91,7 +95,7 @@ export default {
     }
   }
 
-  > div {
+  > div:not(.footer__bg) {
     @extend .container;
   }
 

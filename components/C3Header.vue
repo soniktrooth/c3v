@@ -1,5 +1,5 @@
 <template>
-  <header id="header">
+  <header id="header" v-lazy:background-image="imgUrl">
     <div class="header__logo-social">
       <c3-logo />
       <h1>C3 Church Vancouver</h1>
@@ -34,7 +34,8 @@ export default {
 
   data() {
     return {
-      socialMenu: this.$store.state.socialMenu
+      socialMenu: this.$store.state.socialMenu,
+      imgUrl: require('@/assets/img/forest.jpg')
     }
   },
   methods: {
@@ -53,7 +54,6 @@ header {
   min-height: 700px;
   position: relative;
   background-color: var(--primary);
-  background-image: url('~assets/img/forest.jpg');
   background-size: cover;
   background-position: center;
   color: $white;
