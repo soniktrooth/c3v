@@ -4,4 +4,6 @@ title: '# fastfriday'
 order: '3'
 ---
 
-Come fast, pray and worship with us on the first Friday of every month.
+Commencing Fri Oct 4th.
+10am-12pm Prayer Drop In.
+7pm-8pm Hour of Power.
