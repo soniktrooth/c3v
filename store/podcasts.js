@@ -71,9 +71,10 @@ export const mutations = {
     })
 
     // eslint-disable-next-line
-    state.episodes = _.orderBy(pc, 'attributes.order', 'asc')
+    state.episodes = _.orderBy(pc, 'id', 'asc')
   },
   load(state, i) {
-    state.episodes[i].load = true
+    // eslint-disable-next-line
+    _.find(state.episodes, { id: i }).load = true
   }
 }

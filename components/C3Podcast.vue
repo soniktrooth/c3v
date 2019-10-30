@@ -6,6 +6,7 @@
     <div class="podcast__iframes">
       <h3>Listen Now:</h3>
       <div class="podcast__iframes-wrap">
+        <iframe src="https://anchor.fm/c3vancouver/embed" height="102px" width="400px" frameborder="0" scrolling="no" />
         <div
           v-for="ep in episodes"
           :key="ep.id"
@@ -17,7 +18,7 @@
           />
           <div
             class="podcast__preload"
-            @click="loadPlay"
+            @click="loadPlay(ep.id)"
           >
             <div>
               <h4>{{ ep.title }}</h4>
@@ -76,7 +77,6 @@ export default {
   },
   computed: {
     episodes() {
-      // eslint-disable-next-line
       return this.$store.state.podcasts.episodes
     },
     services() {
@@ -84,10 +84,7 @@ export default {
     }
   },
   methods: {
-    loadPlay(event) {
-      const child = event.currentTarget.parentNode
-      const parent = document.getElementsByClassName('podcast__iframes-wrap')[0]
-      const i = Array.prototype.indexOf.call(parent.children, child)
+    loadPlay(i) {
       this.$store.commit('podcasts/load', i)
     }
   }
