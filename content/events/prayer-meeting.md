@@ -1,8 +1,7 @@
 ---
 pub_date: '2019-01-25'
-title: 'C3 Prayer Night'
+title: 'Prayer <br>& Worship'
 order: '2'
 ---
 
-Commencing Tue Oct 15th 
-7pm on the third Tuesday of the month.
+7:30pm on the third Tuesday of the month.

@@ -1,11 +1,11 @@
 ---
-pub_date: '2019-08-19'
-exp_date: '2019-09-01'
-title: 'SheWay Grocery Drive'
-event_date: '2019-09-01'
+pub_date: '2019-10-29'
+exp_date: '2019-11-13'
+title: 'C3V Team All In '
+event_date: '2019-11-12'
 featured: true
-image: sheway-grocery-min.jpeg
+image: all-in-min.jpeg
 order: '6'
 ---
 
-She Way back to school grocery drive. All donations to be brought to church in a reusable bad by Sunday 1st September 2019.
+C3 Team All In Meeting. Come join the team!
