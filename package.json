@@ -32,7 +32,7 @@
     "jquery": "^3.3.1",
     "markdown-it": "^10.0.0",
     "node-sass": "^4.11.0",
-    "nuxt": "^2.3.4",
+    "nuxt": "^2.10",
     "nuxt-sass-resources-loader": "^2.0.5",
     "nuxt-svg-loader": "^1.0.1",
     "path": "^0.12.7",
