@@ -10,6 +10,7 @@
       <c3-about-us />
       <c3-podcast />
       <c3-giving />
+      <c3-connected />
       <c3-attribution />
     </div>
     <c3-footer />
@@ -24,6 +25,7 @@ import C3AboutUs from '@/components/C3AboutUs.vue'
 import C3Podcast from '@/components/C3Podcast.vue'
 import C3Giving from '@/components/C3Giving.vue'
 import C3Attribution from '@/components/C3Attribution.vue'
+import C3Connected from '@/components/C3Connected.vue'
 import C3Footer from '@/components/C3Footer.vue'
 
 export default {
@@ -35,6 +37,7 @@ export default {
     C3Podcast,
     C3Giving,
     C3Attribution,
+    C3Connected,
     C3Footer
   },
   fetch({ store, params }) {
