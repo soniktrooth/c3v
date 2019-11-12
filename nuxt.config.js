@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
    ** Headers of the page
@@ -83,7 +83,9 @@ module.exports = {
       src: '~/plugins/vue2-scrollspy',
       ssr: false
     },
-    { src: '~/plugins/vue-lazyload', ssr: false }
+    { src: '~/plugins/vue-lazyload', ssr: false },
+    '~/plugins/vue-scroll-to',
+    '~/plugins/check-mobile'
   ],
 
   /*
@@ -93,6 +95,7 @@ module.exports = {
     '@bazzite/nuxt-optimized-images',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
+    'vue-scrollto/nuxt',
     // Doc: https://bootstrap-vue.js.org/docs/
     [
       'bootstrap-vue/nuxt',

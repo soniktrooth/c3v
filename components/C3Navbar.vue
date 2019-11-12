@@ -23,8 +23,6 @@
     >
       <div class="navbar-nav">
         <ul
-          v-scroll-spy-active
-          v-scroll-spy-link
           class="nav"
         >
           <li
@@ -33,8 +31,13 @@
             class="nav-item"
           >
             <a
+              v-scroll-to="{
+                el: item.url,
+                offset: item.url === '#find-us' ? scrollToOffset * -1 : 10,
+                onStart: scrollStart
+              }"
               :href="item.url"
-              class="nav-link"
+              :class="['nav-link', {active: (item.url === activeMenuItem)}]"
               @click="closeMenu()"
             >
               {{ item.title }}
@@ -47,6 +50,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -54,12 +58,19 @@ export default {
       scrollY: 0,
       headerHeight: 0,
       navHeight: 0,
-      menuOpen: 0
+      menuOpen: 0,
+      activeMenuItem: ''
     }
   },
   computed: {
+    ...mapState({
+      isMobile: state => state.mobile
+    }),
     sticky() {
       return this.menuOpen || this.scrollY > this.headerHeight - this.navHeight
+    },
+    scrollToOffset() {
+      return this.isMobile ? 48 : 80
     }
   },
   mounted() {
@@ -73,6 +84,9 @@ export default {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
+    ...mapActions({
+      bodyScrollToggle: 'index/bodyScrollToggle'
+    }),
     handleScroll() {
       this.scrollY = window.scrollY
     },
@@ -84,15 +98,16 @@ export default {
     },
     menuToggle() {
       this.menuOpen = !this.menuOpen
-      this.store.actions.bodyScrollToggle()
+      this.bodyScrollToggle()
     },
     closeMenu() {
       // Only on mobile.
-      if (window.matchMedia('(max-width: 768px)').matches) {
-        // Lint diabled needed because jQuery.
-        // eslint-disable-next-line
+      if (this.isMobile) {
         $('.navbar-toggler').trigger('click')
       }
+    },
+    scrollStart(e) {
+      this.activeMenuItem = '#' + e.id
     }
   }
 }
@@ -174,13 +189,6 @@ export default {
         width: auto;
       }
 
-      &.active {
-        a {
-          background-color: $white;
-          color: $black;
-        }
-      }
-
       a {
         height: 5rem;
         display: flex;
@@ -191,6 +199,13 @@ export default {
         letter-spacing: 3px;
         color: $white;
         font-weight: 800;
+        transition: background-color 0.35s ease-in-out;
+        background-color: transparent;
+
+        &.active {
+          background-color: $white;
+          color: $black;
+        }
       }
     }
   }

@@ -43,7 +43,8 @@ export const state = () => ({
     region: 'British Columbia',
     postcode: 'V5T1V6'
   },
-  bodyScroll: true
+  bodyScroll: true,
+  mobile: true
 })
 
 // Note the duplication in fetchEvents and fetchPodcasts. Webpack requires
@@ -76,5 +77,14 @@ export const actions = {
     document.documentElement.style.height = vpH.toString() + 'px'
     body.style.height = vpH.toString() + 'px'
     body.document.getElementsByTagName('BODY')[0].classList.toggle('no-scroll')
+  },
+  setMobile({ commit }, mobile) {
+    commit('SET_MOBILE', mobile)
+  }
+}
+
+export const mutations = {
+  SET_MOBILE(state, mobile) {
+    state.mobile = mobile
   }
 }

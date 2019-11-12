@@ -70,11 +70,9 @@ export const mutations = {
       pc.push(item.attributes)
     })
 
-    // eslint-disable-next-line
     state.episodes = _.orderBy(pc, 'id', 'asc')
   },
   load(state, i) {
-    // eslint-disable-next-line
     _.find(state.episodes, { id: i }).load = true
   }
 }

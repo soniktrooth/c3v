@@ -3,7 +3,6 @@
     <c3-header />
     <div
       id="sections"
-      v-scroll-spy="{allowNoActive: true, offset: scrollSpyOffset(), time: 1000, steps: 50}"
     >
       <c3-find-us />
       <c3-events />
@@ -44,13 +43,6 @@ export default {
     // Grab all the event markdown files and add them to the store.
     store.dispatch('fetchEvents')
     store.dispatch('fetchPodcasts')
-  },
-  methods: {
-    scrollSpyOffset() {
-      if (process.client) {
-        return window.matchMedia('(min-width: 768px)').matches ? 80 : 48
-      }
-    }
   }
 }
 </script>

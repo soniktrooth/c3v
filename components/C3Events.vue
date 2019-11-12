@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import C3Event from '@/components/C3Event.vue'
 
 export default {
@@ -38,19 +39,10 @@ export default {
     return {}
   },
   computed: {
-    events() {
-      // eslint-disable-next-line
-      return _.orderBy(this.$store.state.events.list, 'order', 'asc')
-    },
-    featured() {
-      return this.$store.state.events.featured
-    }
-  },
-  methods: {
-    eventExpired(event) {
-      // return Date.now() > Date.parse(event.attributes.exp_date)
-      return Date.now() > Date.parse(event.attributes.exp_date)
-    }
+    ...mapGetters({
+      featured: 'events/getFeatured',
+      events: 'events/getList'
+    })
   }
 }
 </script>

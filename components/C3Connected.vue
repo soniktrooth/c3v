@@ -3,7 +3,7 @@
     <div>
       <h2>Stay Connected</h2>
       <h3>
-        Want to stay in touch? <a href="http://connected.c3v.ca" target="_blank">
+        Want to stay in touch? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKJ_ME6rmfUDDYFehkDoUKaDgnORcAQSfjpmWDbUZAHIEKBw/viewform" target="_blank">
           Join our mailing list.
         </a>
       </h3>
@@ -18,10 +18,7 @@
 
 <script>
 export default {
-  name: 'C3Connected',
-  data() {
-    return {}
-  }
+  name: 'C3Connected'
 }
 </script>
 
