@@ -1,8 +1,7 @@
 ---
 pub_date: '2019-01-25'
 title: 'Life groups'
-order: '1'
+order: '3'
 ---
 
-North Van, City & The Valley.
-7pm first Tuesday of the month.
+1st Tuesday of every month

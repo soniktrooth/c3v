@@ -56,6 +56,14 @@ export default {
     padding-top: 21rem;
   }
 
+  @include media-breakpoint-up(lg) {
+    padding-top: 25rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 28vw;
+  }
+
   .events__list {
     @extend %container;
     display: flex;

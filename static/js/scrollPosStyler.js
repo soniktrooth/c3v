@@ -9,32 +9,32 @@
 // JSHint directives
 /* exported ScrollPosStyler */
 
-var ScrollPosStyler = (function(document, window) {
-  "use strict";
+const ScrollPosStyler = (function(document, window) {
+  'use strict'
 
   /* ====================
    * private variables
    * ==================== */
-  var scrollPosY = 0,
-      busy = false,
+  let scrollPosY = 0
+  let busy = false
 
-      // toggle style / class when scrolling below this position (in px)
-      scrollOffsetY = 1,
+  // toggle style / class when scrolling below this position (in px)
+  let scrollOffsetY = 1
 
-      // class used to apply scrollPosStyler to
-      spsClass = "sps",
+  // class used to apply scrollPosStyler to
+  let spsClass = 'sps'
 
-      // choose elements to apply style / class to
-      elements = document.getElementsByClassName(spsClass),
+  // choose elements to apply style / class to
+  let elements = document.getElementsByClassName(spsClass)
 
-      // style / class to apply to elements when above scroll position
-      classAbove = "sps--abv",
+  // style / class to apply to elements when above scroll position
+  let classAbove = 'sps--abv'
 
-      // style / class to apply to elements when below scroll position
-      classBelow = "sps--blw",
+  // style / class to apply to elements when below scroll position
+  let classBelow = 'sps--blw'
 
-      // tag to set custom scroll offset per element
-      offsetTag = "data-sps-offset";
+  // tag to set custom scroll offset per element
+  let offsetTag = 'data-sps-offset'
 
   /* ====================
    * private funcion to check scroll position
@@ -43,16 +43,16 @@ var ScrollPosStyler = (function(document, window) {
     // ensure that events don't stack
     if (!busy) {
       // find elements to update
-      var elementsToUpdate = getElementsToUpdate();
+      const elementsToUpdate = getElementsToUpdate()
 
       if (elementsToUpdate.length > 0) {
         // suspend accepting scroll events
-        busy = true;
+        busy = true
 
         // asynchronuously update elements
         window.requestAnimationFrame(function() {
-          updateElements(elementsToUpdate);
-        });
+          updateElements(elementsToUpdate)
+        })
       }
     }
   }
@@ -62,20 +62,21 @@ var ScrollPosStyler = (function(document, window) {
    * ==================== */
   function getElementsToUpdate() {
     // get current scroll position from window
-    scrollPosY = window.pageYOffset;
+    scrollPosY = window.pageYOffset
 
-    var elementsToUpdate = [];
+    const elementsToUpdate = []
 
     // iterate over elements
     // for (var elem of elements) {
-    for (var i = 0; elements[i]; ++i) { // chrome workaround
-      var element = elements[i];
+    for (let i = 0; elements[i]; ++i) {
+      // chrome workaround
+      const element = elements[i]
 
       // get offset from element, default to global option
-      var elScrollOffsetY = element.getAttribute(offsetTag) || scrollOffsetY;
+      const elScrollOffsetY = element.getAttribute(offsetTag) || scrollOffsetY
 
       // check current state of element
-      var elOnTop = element.classList.contains(classAbove);
+      const elOnTop = element.classList.contains(classAbove)
 
       // if we were above, and are now below scroll position...
       if (elOnTop && scrollPosY > elScrollOffsetY) {
@@ -84,20 +85,20 @@ var ScrollPosStyler = (function(document, window) {
           element: element,
           addClass: classBelow,
           removeClass: classAbove
-        });
+        })
 
-      // if we were below, and are now above scroll position...
+        // if we were below, and are now above scroll position...
       } else if (!elOnTop && scrollPosY <= elScrollOffsetY) {
         // remember element
         elementsToUpdate.push({
           element: element,
           addClass: classAbove,
           removeClass: classBelow
-        });
+        })
       }
     }
 
-    return elementsToUpdate;
+    return elementsToUpdate
   }
 
   /* ====================
@@ -106,16 +107,17 @@ var ScrollPosStyler = (function(document, window) {
   function updateElements(elementsToUpdate) {
     // iterate over elements
     // for (var elem of elements) {
-    for (var i = 0; elementsToUpdate[i]; ++i) { // chrome workaround
-      var map = elementsToUpdate[i];
+    for (let i = 0; elementsToUpdate[i]; ++i) {
+      // chrome workaround
+      const map = elementsToUpdate[i]
 
       // add style / class to element
-      map.element.classList.add(map.addClass);
-      map.element.classList.remove(map.removeClass);
+      map.element.classList.add(map.addClass)
+      map.element.classList.remove(map.removeClass)
     }
 
     // resume accepting scroll events
-    busy = false;
+    busy = false
   }
 
   /* ====================
@@ -129,50 +131,49 @@ var ScrollPosStyler = (function(document, window) {
    *    offsetTag (String): HTML tag used on the element to specify a scrollOffsetY other than the default.
    *
    * ==================== */
-  var pub = {
+  const pub = {
     init: function(options) {
       // suspend accepting scroll events
-      busy = true;
+      busy = true
 
       // merge options object with global options
       if (options) {
         if (options.spsClass) {
-          spsClass = options.spsClass;
-          elements = document.getElementsByClassName(spsClass);
+          spsClass = options.spsClass
+          elements = document.getElementsByClassName(spsClass)
         }
-        scrollOffsetY = options.scrollOffsetY || scrollOffsetY;
-        classAbove = options.classAbove || classAbove;
-        classBelow = options.classBelow || classBelow;
-        offsetTag = options.offsetTag || offsetTag;
+        scrollOffsetY = options.scrollOffsetY || scrollOffsetY
+        classAbove = options.classAbove || classAbove
+        classBelow = options.classBelow || classBelow
+        offsetTag = options.offsetTag || offsetTag
       }
 
       // find elements to update
-      var elementsToUpdate = getElementsToUpdate();
+      const elementsToUpdate = getElementsToUpdate()
 
       if (elementsToUpdate.length > 0) {
         // asynchronuously update elements
         window.requestAnimationFrame(function() {
-          updateElements(elementsToUpdate);
-        });
+          updateElements(elementsToUpdate)
+        })
       } else {
         // resume accepting scroll events
-        busy = false;
+        busy = false
       }
     }
-  };
-
+  }
 
   /* ====================
    * main initialization
    * ==================== */
   // add initial style / class to elements when DOM is ready
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener('DOMContentLoaded', function() {
     // defer initialization to allow browser to restore scroll position
-    window.setTimeout(pub.init, 1);
-  });
+    window.setTimeout(pub.init, 1)
+  })
 
   // register for window scroll events
-  window.addEventListener("scroll", onScroll);
+  window.addEventListener('scroll', onScroll)
 
-  return pub;
-})(document, window);
+  return pub
+})(document, window)
