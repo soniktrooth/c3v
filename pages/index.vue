@@ -1,5 +1,6 @@
 <template>
   <div class="page page--index">
+    <c3-corona />
     <c3-header />
     <div
       id="sections"
@@ -26,6 +27,7 @@ import C3Giving from '@/components/C3Giving.vue'
 import C3Attribution from '@/components/C3Attribution.vue'
 import C3Connected from '@/components/C3Connected.vue'
 import C3Footer from '@/components/C3Footer.vue'
+import C3Corona from '@/components/C3Corona.vue'
 
 export default {
   components: {
@@ -37,7 +39,8 @@ export default {
     C3Giving,
     C3Attribution,
     C3Connected,
-    C3Footer
+    C3Footer,
+    C3Corona
   },
   fetch({ store, params }) {
     // Grab all the event markdown files and add them to the store.
