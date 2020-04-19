@@ -12,7 +12,7 @@ export default {
   components: {},
   data() {
     return {
-      url: 'https://www.facebook.com/pg/C3Vancouver/videos'
+      url: 'https://www.facebook.com/c3Vancouver/live_videos/'
     }
   }
 }
